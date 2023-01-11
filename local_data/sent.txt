@@ -1,0 +1,1 @@
+[{"mittente":"mehdi@jmail.com","destinatari":["miki@g.com"],"oggetto":"Passo oggi pomeriggio","messaggio":"Passo oggi pomeriggio per comprare i vestiti.\n\nA dopo!","dataInvio":"Jan 10, 2023, 2:24:55 PM"}]

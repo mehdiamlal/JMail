@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progetto_prog_3.client.ReplyController">
+   <children>
+      <Label alignment="CENTER" layoutY="24.0" prefHeight="31.0" prefWidth="843.0" text="Rispondi">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="140.0" text="Oggetto:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="oggetto" layoutX="145.0" layoutY="137.0" prefHeight="26.0" prefWidth="502.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextArea fx:id="messaggio" layoutX="48.0" layoutY="186.0" prefHeight="327.0" prefWidth="741.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
+      <Label layoutX="36.0" layoutY="93.0" text="Destinatari:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="sendBtn" layoutX="425.0" layoutY="565.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" text="Invia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="somethingMissing" alignment="CENTER" layoutY="528.0" prefHeight="17.0" prefWidth="842.0" textFill="#d01414">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="destinatari" layoutX="145.0" layoutY="92.0" prefWidth="150.0" />
+      <Button fx:id="sendBtn1" layoutX="310.0" layoutY="565.0" mnemonicParsing="false" onAction="#home" prefHeight="40.0" prefWidth="102.0" text="Home">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

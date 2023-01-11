@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progetto_prog_3.client.ReaderController">
+   <children>
+      <Label alignment="CENTER" layoutY="24.0" prefHeight="31.0" prefWidth="843.0" text="Email Reader">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="88.0" layoutY="83.0" prefHeight="23.0" prefWidth="32.0" text="Da:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="127.0" text="Oggetto:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mittente" editable="false" layoutX="138.0" layoutY="80.0" prefHeight="26.0" prefWidth="270.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="oggetto" editable="false" layoutX="138.0" layoutY="124.0" prefHeight="26.0" prefWidth="502.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextArea fx:id="messaggio" editable="false" layoutX="48.0" layoutY="221.0" prefHeight="320.0" prefWidth="741.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
+      <Label layoutX="28.0" layoutY="167.0" text="Destinatari:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="destinatari" layoutX="138.0" layoutY="164.0" prefWidth="150.0" />
+      <Button fx:id="replyBtn" layoutX="159.0" layoutY="561.0" mnemonicParsing="false" onAction="#reply" prefHeight="40.0" prefWidth="102.0" text="Rispondi">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="replyAllBtn" layoutX="273.0" layoutY="561.0" mnemonicParsing="false" onAction="#replyAll" prefHeight="40.0" prefWidth="140.0" text="Rispondi a tutti">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="forwardBtn" layoutX="423.0" layoutY="561.0" mnemonicParsing="false" onAction="#forward" prefHeight="40.0" prefWidth="102.0" text="Inoltra">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteBtn" layoutX="538.0" layoutY="561.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" text="Elimina" textFill="#e40e0e">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="forwardBtn1" layoutX="48.0" layoutY="561.0" mnemonicParsing="false" onAction="#home" prefHeight="40.0" prefWidth="102.0" text="Home">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

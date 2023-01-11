@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progetto_prog_3.server.LogController">
+   <right>
+      <VBox alignment="CENTER" spacing="23.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="23.0" right="23.0" />
+         </BorderPane.margin>
+         <children>
+            <Button onAction="#stopServer" mnemonicParsing="false" text="Stop server" />
+            <Button fx:id="testbutton" mnemonicParsing="false" onAction="#foo" text="Test" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="loglistview" />
+   </center>
+</BorderPane>
+

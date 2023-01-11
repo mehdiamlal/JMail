@@ -1,0 +1,38 @@
+[
+  {
+    "mittente": "piero@jmail.com",
+    "destinatari": [
+      "mario@jmail.com"
+    ],
+    "argomento": "Sabato ci sei?",
+    "testo": "Stiamo organizzando qualcosa questo sabato a Milano, tu ci sei?",
+    "data": "Dec 29, 2022, 12:20:51 PM"
+  },
+  {
+    "mittente": "nino@jmail.com",
+    "destinatari": [
+      "giorgina@jmail.com"
+    ],
+    "argomento": "Passo oggi pomeriggio",
+    "testo": "Passo oggi pomeriggio per comprare i vestiti.\n\nA dopo!",
+    "data": "Dec 29, 2022, 12:23:43 PM"
+  },
+  {
+    "mittente": "ciro@jmail.com",
+    "destinatari": [
+      "raul@jmail.com"
+    ],
+    "argomento": "Come see us bro",
+    "testo": "Come see us bro, we\u0027re waiting for you...",
+    "data": "Dec 29, 2022, 12:25:21 PM"
+  },
+  {
+    "mittente": "mario@jmail.com",
+    "destinatari": [
+      "biango@jmail.com"
+    ],
+    "argomento": "Vieni, scemo",
+    "testo": "Vieni che ti stiamo aspettando!!!",
+    "data": "Dec 29, 2022, 12:34:46 PM"
+  }
+]
