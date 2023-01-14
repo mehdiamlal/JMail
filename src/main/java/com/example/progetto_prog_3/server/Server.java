@@ -33,7 +33,7 @@ public class Server extends Application {
     @Override
     public void init() throws Exception {
         this.log = new Log();
-        File id_txt = new File("./id.txt");
+        File id_txt = new File("./server_data/id.txt");
         try {
             if (!id_txt.exists()) {
                 id_txt.createNewFile();
@@ -47,6 +47,7 @@ public class Server extends Application {
                 Scanner sc = new Scanner(id_txt);
                 while (sc.hasNextInt()) {
                     tmp = sc.nextInt();
+                    System.out.println("ID: " + tmp);
                 }
                 idClass = new IDClass(tmp);
                 sc.close();

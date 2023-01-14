@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "marcuccio è qui",
+    "testo": "vieni",
+    "data": "Sat Jan 14 15:38:27 CET 2023"
+  },
+  {
+    "id": 2,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mike@jmail.com",
+      "mirko@jmail.com"
+    ],
+    "argomento": "Venite a calcetto",
+    "testo": "prov a il calcetto",
+    "data": "Sat Jan 14 16:04:11 CET 2023"
+  },
+  {
+    "id": 0,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "Mirko is here",
+    "testo": "heheheheh",
+    "data": "Sat Jan 14 16:39:25 CET 2023"
+  },
+  {
+    "id": 0,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "Mirko is here",
+    "testo": "heheheheh",
+    "data": "Sat Jan 14 16:41:58 CET 2023"
+  },
+  {
+    "id": 2,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "test",
+    "testo": "test",
+    "data": "Sat Jan 14 16:44:05 CET 2023"
+  },
+  {
+    "id": 0,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "j",
+    "testo": "j",
+    "data": "Sat Jan 14 16:51:25 CET 2023"
+  }
+]
