@@ -1,6 +1,7 @@
 package com.example.progetto_prog_3.client;
 
 import com.example.progetto_prog_3.model.Email;
+import com.example.progetto_prog_3.model.MsgProtocol;
 import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,20 +13,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class ComposeController implements Initializable {
+public class ComposeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private ArrayList<Email> sentEmails;
     @FXML
     private TextField destinatario;
 
@@ -55,6 +59,7 @@ public class ComposeController implements Initializable {
     @FXML
     protected void addDestinatario() {
         invalidEmail.setText("");
+        somethingMissing.setText("");
         if(controllaMail(destinatario.getText().trim())) {
             if(stringaDestinatari.equals("")) {
                 stringaDestinatari += destinatario.getText().trim().toLowerCase();
@@ -71,6 +76,8 @@ public class ComposeController implements Initializable {
 
     @FXML
     protected void sendEmail() {
+        somethingMissing.setText("");
+        somethingMissing.setTextFill(Color.rgb(208, 29, 29));
         if(listaDestinatari.size() == 0) {
             somethingMissing.setText("ATTEZIONE: Aggiungere almeno un destinatario.");
         } else if(oggetto.getText().trim().equals("")) {
@@ -78,45 +85,45 @@ public class ComposeController implements Initializable {
         } else if(messaggio.getText().trim().equals("")) {
             somethingMissing.setText("ATTENZIONE: Il corpo dell'email non può essere vuoto");
         } else {
-            somethingMissing.setText("");
-            Gson gson = new Gson();
             Email em = new Email("mehdi@jmail.com", listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
-            sentEmails.add(em);
-            String json = gson.toJson(sentEmails);
-
+            Socket s = null;
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/sent.txt"));
-                writer.write(json);
-                writer.close();
-                System.out.println("\nEmail inviata con successo!");
+                MsgProtocol<Email> msg = new MsgProtocol<>(em, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);
+                s = new Socket(InetAddress.getLocalHost(), 8082);
+                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+                out.writeObject(msg);
+                out.flush();
+                MsgProtocol<List<String>> resp = (MsgProtocol<List<String>>) in.readObject();
+                if(resp.getMsg() != null) {
+                    somethingMissing.setText("Le seguenti email sono errate: " + resp.getMsg());
+                } else {
+                    somethingMissing.setTextFill(Color.color(0, 0, 0));
+                    somethingMissing.setText("Email inviata con successo.");
+                }
+                destinatario.setText("");
+                oggetto.setText("");
+                messaggio.setText("");
+                listaDestinatari = new ArrayList<>();
+                destinatari.setText("");
+                stringaDestinatari = "";
             } catch(IOException e) {
-                System.out.println(e.getMessage());
+                somethingMissing.setText("Impossibile inviare la mail al momento, riprovare più tardi.");
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    if(s != null) {
+                        s.close();
+                    }
+                } catch(IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-            destinatario.setText("");
-            oggetto.setText("");
-            messaggio.setText("");
-            listaDestinatari = new ArrayList<>();
-            destinatari.setText("");
-            stringaDestinatari = "";
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Gson gson = new Gson();
-        String json = "";
-        try {
-            Reader reader = new FileReader("./local_data/sent.txt");
-            sentEmails = gson.fromJson(json, ArrayList.class);
-            if(sentEmails == null) {  //se non ci sono email inviate...
-                sentEmails = new ArrayList<>();
-            }
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void home(ActionEvent event) throws IOException{
+    public void home(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("home-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
