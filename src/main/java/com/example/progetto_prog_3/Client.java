@@ -4,6 +4,7 @@ package com.example.progetto_prog_3;
 import com.example.progetto_prog_3.model.Email;
 import com.example.progetto_prog_3.model.Inbox;
 import com.example.progetto_prog_3.model.MsgProtocol;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,11 +21,18 @@ public class Client {
             so = new Socket("localhost",8082);
             ObjectOutputStream out = new ObjectOutputStream(so.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(so.getInputStream());
-            MsgProtocol<String> msg = new MsgProtocol<>("mirko@jmail.com", MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
-            out.writeObject(msg);
+//            MsgProtocol<String> msg = new MsgProtocol<>("mirko@jmail.com", MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+//            out.writeObject(msg);
+//            out.flush();
+//            MsgProtocol<Inbox> resp = (MsgProtocol<Inbox>) in.readObject();
+//            System.out.println(resp.getMsg().getInMessages());
+            Email email = new Email(2,null,null,null,null,null);
+            Pair<String,Email> pair = new Pair<>("mirko@jmail.com",email);
+            MsgProtocol<Pair> request = new MsgProtocol<>(pair, MsgProtocol.MsgAction.REMOVE_EMAIL_REQUEST);
+            out.writeObject(request);
             out.flush();
             MsgProtocol<Inbox> resp = (MsgProtocol<Inbox>) in.readObject();
-            System.out.println(resp.getMsg().getInMessages());
+            System.out.println(resp.getError());
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

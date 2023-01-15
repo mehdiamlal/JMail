@@ -124,6 +124,42 @@ public class UserDirectory {
         }
     }
 
+    public boolean removeMessageFromInMessageFile(Email emailToRemove) throws IOException {
+        PrintWriter writer = null;
+        BufferedReader reader = null;
+        Gson g = new GsonBuilder().setPrettyPrinting().create();
+        StringBuilder sb = new StringBuilder();
+        synchronized (inFile){
+            reader = new BufferedReader(new FileReader(inFile));
+            String line = reader.readLine();
+            while (line != null) {
+                sb.append(line);
+                line = reader.readLine();
+            }
+            String data = sb.toString();
+            Type type = new TypeToken<List<Email>>() {
+            }.getType();
+            List<Email> list = g.fromJson(data, type);
+            if(list == null){   //se la lista è null , non esistono email,ritorna false
+                reader.close();
+                return false;
+            }
+            if(list.remove(emailToRemove)){
+                String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
+                JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
+                String parsedString = g.toJson(je);
+                writer = new PrintWriter(inFile);
+                writer.println(parsedString);
+                reader.close();
+                writer.flush();
+                writer.close();
+                return true;
+            }
+            reader.close();
+            return false;
+        }
+    }
+
     public List<Email> getInMessages(){
         List<Email> list = null;
         Gson g = new GsonBuilder().setPrettyPrinting().create();

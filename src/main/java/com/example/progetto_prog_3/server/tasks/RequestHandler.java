@@ -5,6 +5,7 @@ import com.example.progetto_prog_3.server.modules.IDClass;
 import com.example.progetto_prog_3.server.modules.UserDirectory;
 import com.example.progetto_prog_3.model.MsgProtocol;
 import com.example.progetto_prog_3.server.modules.Log;
+import javafx.util.Pair;
 
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 import static com.example.progetto_prog_3.server.tasks.HandleNotification.handleNotification;
 import static com.example.progetto_prog_3.server.tasks.PrintToLog.printToLog;
+import static com.example.progetto_prog_3.server.tasks.RemoveEmail.removeEmail;
 import static com.example.progetto_prog_3.server.tasks.RetrieveInbox.*;
 import static com.example.progetto_prog_3.server.tasks.SendEmail.sendEmail;
 
@@ -95,6 +97,22 @@ public class RequestHandler implements Runnable {
                     String email = (String) msg.getMsg();
                     try {
                         handleNotification(email, mapOfInbox, out);
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                    break;
+                case REMOVE_EMAIL_REQUEST:
+                    Pair<String,Email> pair = (Pair<String, Email>) msg.getMsg();
+                    String emailAddress = pair.getKey();
+                    Email emailToRemove = pair.getValue();
+                    printToLog(log,emailAddress+" chiede di rimuovere la mail con ID = "+emailToRemove.getId());
+                    try {
+                        if(removeEmail(emailAddress,emailToRemove,mapOfInbox,out)){
+                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" eliminata con successo");
+                        }
+                        else{
+                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" inesistente oppure qualcosa è andato storto");
+                        }
                     } catch (IOException ex) {
                         System.out.println(ex.getMessage());
                     }

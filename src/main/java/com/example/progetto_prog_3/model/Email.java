@@ -2,6 +2,7 @@ package com.example.progetto_prog_3.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class Email implements Serializable {
     private int id;
@@ -60,5 +61,18 @@ public class Email implements Serializable {
     @Override
     public String toString() {
         return argomento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Email email = (Email) o;
+        return id == email.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -14,11 +14,14 @@ public class MsgProtocol<T> implements Serializable {
         GET_INBOX_FOR_USER_OUT_RESPONSE,
         GET_NOTIFICATION_FOR_USER_REQUEST,
         GET_NOTIFICATION_FOR_USER_RESPONSE,
+        REMOVE_EMAIL_REQUEST,
+        REMOVE_EMAIL_RESPONSE
     }
 
     public enum MsgError {
         NO_ERROR,
-        WRONG_EMAIL
+        WRONG_EMAIL,
+        EMAIL_DOESNT_EXIST
     }
 
     private final T msg;
