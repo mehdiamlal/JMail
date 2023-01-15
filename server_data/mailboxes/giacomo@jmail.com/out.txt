@@ -49,5 +49,25 @@
     "argomento": "RE: Partita di squash",
     "testo": "hhh",
     "data": "Sun Jan 15 11:04:20 CET 2023"
+  },
+  {
+    "id": 1907,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@gmail.com"
+    ],
+    "argomento": "Partita di squash",
+    "testo": "Venite alla partita di squash di domani che ci servono due giocatori.\n\nPoi andiamo a prendere una bella pizza!\n\nMehdi \u003c3",
+    "data": "Sun Jan 15 11:15:43 CET 2023"
+  },
+  {
+    "id": 1908,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "Partita di squash",
+    "testo": "Venite alla partita di squash di domani che ci servono due giocatori.\n\nPoi andiamo a prendere una bella pizza!\n\nMehdi \u003c3",
+    "data": "Sun Jan 15 11:15:56 CET 2023"
   }
 ]
