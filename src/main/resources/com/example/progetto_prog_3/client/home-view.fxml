@@ -26,5 +26,10 @@
          <font>
             <Font size="18.0" />
          </font></Button>
+      <Button fx:id="refreashBtn" layoutX="637.0" layoutY="163.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="123.0" text="Aggiorna">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
