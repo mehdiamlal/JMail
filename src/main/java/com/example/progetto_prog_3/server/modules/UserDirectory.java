@@ -142,6 +142,10 @@ public class UserDirectory {
             Type type = new TypeToken<List<Email>>() {
             }.getType();
             list = g.fromJson(data, type);
+
+//            Type type = new TypeToken<List<Email>>() {
+//            }.getType();
+//            list = g.fromJson(data, type);
         }catch (IOException e){
             throw new RuntimeException();
         }finally {

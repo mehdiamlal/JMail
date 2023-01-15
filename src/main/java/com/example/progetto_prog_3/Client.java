@@ -2,6 +2,7 @@ package com.example.progetto_prog_3;
 
 
 import com.example.progetto_prog_3.model.Email;
+import com.example.progetto_prog_3.model.Inbox;
 import com.example.progetto_prog_3.model.MsgProtocol;
 
 import java.io.IOException;
@@ -19,15 +20,11 @@ public class Client {
             so = new Socket("localhost",8082);
             ObjectOutputStream out = new ObjectOutputStream(so.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(so.getInputStream());
-            ArrayList<String> destin = new ArrayList<>();
-            destin.add("y@gmail.com");
-            destin.add("z@gmail.com");
-            Email email = new Email("x@gmail.com", destin, "Calcetto", "Vienite a calcetto domani...", new Date().toString());
-            MsgProtocol<Email> msg = new MsgProtocol<>(email, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);
+            MsgProtocol<String> msg = new MsgProtocol<>("mirko@jmail.com", MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
             out.writeObject(msg);
             out.flush();
-            MsgProtocol<ArrayList<String>> resp = (MsgProtocol<ArrayList<String>>) in.readObject();
-            System.out.println(resp.getMsg());
+            MsgProtocol<Inbox> resp = (MsgProtocol<Inbox>) in.readObject();
+            System.out.println(resp.getMsg().getInMessages());
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
