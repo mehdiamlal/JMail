@@ -16,6 +16,11 @@ public class HandleNotification {
             MsgProtocol<Integer> response = new MsgProtocol<>(count, MsgProtocol.MsgAction.GET_NOTIFICATION_FOR_USER_RESPONSE);         //attacca il numero al messaggio di risposta
             out.writeObject(response);          //manda indietro la risposta
             out.flush();
+            userDirectory.resetNewEmailCount();
+        } else {
+            MsgProtocol<Integer> response = new MsgProtocol<>(-1, MsgProtocol.MsgAction.GET_NOTIFICATION_FOR_USER_RESPONSE, MsgProtocol.MsgError.WRONG_EMAIL);
+            out.writeObject(response);
+            out.flush();
         }
     }
 }

@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -66,8 +67,11 @@ public class HomeController implements Initializable {
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
+            System.out.println(res.getMsg());
             List<Email> inbox = res.getMsg().getInMessages();
-            Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
+            if(inbox != null) {
+                Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
+            }
 
 
             //aggiorniamo la inbox locale...
@@ -115,8 +119,73 @@ public class HomeController implements Initializable {
             });
         } catch(IOException e) {
             System.out.println(e.getMessage());
-        } finally {
+        }
+    }
 
+    public void refresh(ActionEvent event) {
+        Gson gson = new Gson();
+        String json = "";
+        Socket s = null;
+        try {
+            s = new Socket(InetAddress.getLocalHost(), 8082);
+            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+            MsgProtocol<String> req = new MsgProtocol<>(this.account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+            out.writeObject(req);
+            out.flush();
+            MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
+            List<Email> inbox = res.getMsg().getInMessages();
+            if(inbox != null) {
+                Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
+            }
+
+
+            //aggiorniamo la inbox locale...
+            json = gson.toJson(inbox);
+            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/inbox.txt"));
+            writer.write(json);
+            System.out.println("Inbox locale aggiornata.");
+            writer.close();
+
+        } catch(IOException e) {
+            //do nothing, we'll fetch data from local inbox
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if(s != null) {
+                try {
+                    s.close();
+                } catch(IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        json = "";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("./local_data/inbox.txt"));
+            String line;
+            while((line = reader.readLine()) != null) {
+                json += line;
+            }
+            inbox = gson.fromJson(json, Email[].class);
+            if(inbox == null) {  //se non ci sono email ricevute...
+                inbox = new Email[0];
+            }
+            reader.close();
+
+            inboxList.getItems().clear();
+            inboxList.getItems().addAll(inbox);
+            inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
+                @Override
+                public void changed(ObservableValue<? extends Email> observableValue, Email email, Email t1) {
+                    selectedEmail = inboxList.getSelectionModel().getSelectedItem();
+                    readBtn.setDisable(false);
+                    mittente.setText(inboxList.getSelectionModel().getSelectedItem().getMittente());
+                    data.setText(inboxList.getSelectionModel().getSelectedItem().getData());
+                }
+            });
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 

@@ -1,103 +1,42 @@
 [
   {
-    "id": 0,
+    "id": 1917,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "test",
+    "testo": "y",
+    "data": "Sun Jan 15 13:08:51 CET 2023"
+  },
+  {
+    "id": 1918,
     "mittente": "mehdi@jmail.com",
     "destinatari": [
       "giacomo@jmail.com"
     ],
-    "argomento": "Vieni da OZ",
-    "testo": "Ti aspettiamo da OZ stasera",
-    "data": "Sat Jan 14 15:35:48 CET 2023"
+    "argomento": "test2",
+    "testo": "t",
+    "data": "Sun Jan 15 13:13:47 CET 2023"
   },
   {
-    "id": 3,
+    "id": 1919,
     "mittente": "mehdi@jmail.com",
     "destinatari": [
       "giacomo@jmail.com"
     ],
-    "argomento": "Servizio",
-    "testo": "Venite a giocare con Noi",
-    "data": "Sat Jan 14 16:06:33 CET 2023"
+    "argomento": "Test3",
+    "testo": "t3",
+    "data": "Sun Jan 15 13:15:42 CET 2023"
   },
   {
-    "id": 4,
+    "id": 1921,
     "mittente": "mehdi@jmail.com",
     "destinatari": [
       "giacomo@jmail.com"
     ],
-    "argomento": "Servizio",
-    "testo": "Venite a giocare con Noi",
-    "data": "Sat Jan 14 16:06:42 CET 2023"
-  },
-  {
-    "id": 0,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "Progetto!!!",
-    "testo": "Come ci sentiamo per questo progetto??",
-    "data": "Sat Jan 14 16:34:03 CET 2023"
-  },
-  {
-    "id": 1,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "vieni a novembre",
-    "testo": "veniteee",
-    "data": "Sat Jan 14 16:42:35 CET 2023"
-  },
-  {
-    "id": 3,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "t1",
-    "testo": "t1",
-    "data": "Sat Jan 14 16:49:31 CET 2023"
-  },
-  {
-    "id": 4,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "r2",
-    "testo": "r4",
-    "data": "Sat Jan 14 16:50:41 CET 2023"
-  },
-  {
-    "id": 1900,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "g",
-    "testo": "g",
-    "data": "Sat Jan 14 16:56:32 CET 2023"
-  },
-  {
-    "id": 1901,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com"
-    ],
-    "argomento": "a",
-    "testo": "a",
-    "data": "Sat Jan 14 17:01:51 CET 2023"
-  },
-  {
-    "id": 1901,
-    "mittente": "mehdi@jmail.com",
-    "destinatari": [
-      "giacomo@jmail.com",
-      "mirko@jmail.com"
-    ],
-    "argomento": "Partita di squash",
-    "testo": "Venite alla partita di squash di domani che ci servono due giocatori.\n\nPoi andiamo a prendere una bella pizza!\n\nMehdi \u003c3",
-    "data": "Sun Jan 15 10:33:11 CET 2023"
+    "argomento": "test4",
+    "testo": "t",
+    "data": "Sun Jan 15 13:21:23 CET 2023"
   }
 ]
