@@ -25,6 +25,8 @@ public class ForwardController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String account = "giacomo@jmail.com";
+
     private ArrayList<Email> sentEmails;
     private Email toBeForwarded;
     @FXML

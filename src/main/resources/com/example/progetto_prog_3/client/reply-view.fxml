@@ -20,7 +20,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="oggetto" layoutX="145.0" layoutY="137.0" prefHeight="26.0" prefWidth="502.0">
+      <TextField fx:id="oggetto" editable="false" layoutX="145.0" layoutY="137.0" prefHeight="26.0" prefWidth="502.0">
          <font>
             <Font size="15.0" />
          </font></TextField>
@@ -33,7 +33,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="sendBtn" layoutX="425.0" layoutY="565.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" text="Invia">
+      <Button fx:id="sendBtn" layoutX="425.0" layoutY="565.0" mnemonicParsing="false" onAction="#sendEmail" prefHeight="40.0" prefWidth="102.0" text="Invia">
          <font>
             <Font size="18.0" />
          </font>

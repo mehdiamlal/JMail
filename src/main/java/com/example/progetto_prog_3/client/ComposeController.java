@@ -30,6 +30,7 @@ public class ComposeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String account = "giacomo@jmail.com";
     @FXML
     private TextField destinatario;
 
@@ -85,7 +86,7 @@ public class ComposeController {
         } else if(messaggio.getText().trim().equals("")) {
             somethingMissing.setText("ATTENZIONE: Il corpo dell'email non può essere vuoto");
         } else {
-            Email em = new Email("mehdi@jmail.com", listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
+            Email em = new Email(this.account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
             try {
                 MsgProtocol<Email> msg = new MsgProtocol<>(em, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);

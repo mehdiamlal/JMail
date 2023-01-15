@@ -23,6 +23,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -31,6 +32,8 @@ public class HomeController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String account = "giacomo@jmail.com";
+
     @FXML
     private ListView<Email> inboxList;
     private Email[] inbox; //non è un ArrayList per evitare errore di conversione di Gson
@@ -59,11 +62,12 @@ public class HomeController implements Initializable {
             s = new Socket(InetAddress.getLocalHost(), 8082);
             ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-            MsgProtocol<String> req = new MsgProtocol<>("giacomo@jmail.com", MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+            MsgProtocol<String> req = new MsgProtocol<>(this.account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
             List<Email> inbox = res.getMsg().getInMessages();
+            Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
 
 
             //aggiorniamo la inbox locale...

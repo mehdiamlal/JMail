@@ -149,5 +149,16 @@
     "argomento": "a",
     "testo": "a",
     "data": "Sat Jan 14 17:01:51 CET 2023"
+  },
+  {
+    "id": 1901,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com",
+      "mirko@jmail.com"
+    ],
+    "argomento": "Partita di squash",
+    "testo": "Venite alla partita di squash di domani che ci servono due giocatori.\n\nPoi andiamo a prendere una bella pizza!\n\nMehdi \u003c3",
+    "data": "Sun Jan 15 10:33:11 CET 2023"
   }
 ]
