@@ -18,6 +18,8 @@ public class ReaderController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String account = "giacomo@jmail.com";
+
     @FXML
     private TextField mittente;
     private Email email; //oggetto email che si sta leggendo

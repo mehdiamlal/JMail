@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1902,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: Partita di squash",
+    "testo": "Ok ci sono.",
+    "data": "Sun Jan 15 10:54:48 CET 2023"
+  },
+  {
+    "id": 1903,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "RE: Partita di squash",
+    "testo": "passo a prendervi un\u0027ora prima",
+    "data": "Sun Jan 15 10:58:55 CET 2023"
+  },
+  {
+    "id": 1904,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "RE: Partita di squash",
+    "testo": "capito?",
+    "data": "Sun Jan 15 11:00:34 CET 2023"
+  },
+  {
+    "id": 1905,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "RE: Partita di squash",
+    "testo": "Non mi fate aspettare...",
+    "data": "Sun Jan 15 11:02:50 CET 2023"
+  },
+  {
+    "id": 1906,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com",
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: Partita di squash",
+    "testo": "hhh",
+    "data": "Sun Jan 15 11:04:20 CET 2023"
+  }
+]
