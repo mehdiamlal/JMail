@@ -38,5 +38,15 @@
     "argomento": "RE: fffff",
     "testo": "okkkk",
     "data": "Thu Jan 19 21:49:42 CET 2023"
+  },
+  {
+    "id": 1915,
+    "mittente": "mirko@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "ddd",
+    "testo": "ddd",
+    "data": "Thu Jan 19 22:44:01 CET 2023"
   }
 ]

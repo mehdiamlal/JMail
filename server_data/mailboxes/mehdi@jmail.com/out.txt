@@ -78,5 +78,15 @@
     "argomento": "fffff",
     "testo": "ffffff",
     "data": "Thu Jan 19 21:49:17 CET 2023"
+  },
+  {
+    "id": 1916,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "ww",
+    "testo": "ddddddddd",
+    "data": "Thu Jan 19 22:46:52 CET 2023"
   }
 ]
