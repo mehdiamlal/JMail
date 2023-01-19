@@ -28,5 +28,55 @@
     "argomento": "test4",
     "testo": "t",
     "data": "Sun Jan 15 13:21:23 CET 2023"
+  },
+  {
+    "id": 1910,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "m,",
+    "testo": "m",
+    "data": "Thu Jan 19 20:40:39 CET 2023"
+  },
+  {
+    "id": 1912,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "RE: gg",
+    "testo": "gggggggg",
+    "data": "Thu Jan 19 20:43:17 CET 2023"
+  },
+  {
+    "id": 1910,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "mario viene",
+    "testo": "fffffffff",
+    "data": "Thu Jan 19 21:46:19 CET 2023"
+  },
+  {
+    "id": 1911,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "come va",
+    "testo": "aaaaa",
+    "data": "Thu Jan 19 21:48:27 CET 2023"
+  },
+  {
+    "id": 1913,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "fffff",
+    "testo": "ffffff",
+    "data": "Thu Jan 19 21:49:17 CET 2023"
   }
 ]

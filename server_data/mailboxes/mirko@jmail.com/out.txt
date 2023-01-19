@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1914,
+    "mittente": "mirko@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: fffff",
+    "testo": "okkkk",
+    "data": "Thu Jan 19 21:49:42 CET 2023"
+  }
+]

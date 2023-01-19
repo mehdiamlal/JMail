@@ -30,7 +30,7 @@ public class ForwardController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String account = "giacomo@jmail.com";
+    private String account;
 
     private ArrayList<Email> sentEmails;
     private Email toBeForwarded;
@@ -53,6 +53,10 @@ public class ForwardController {
 
     @FXML
     private TextArea messaggio;
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
     public void setEmail(Email email) {
         this.toBeForwarded = email;
@@ -89,7 +93,7 @@ public class ForwardController {
         if(listaDestinatari.size() == 0) {
             somethingMissing.setText("ATTEZIONE: Aggiungere almeno un destinatario.");
         } else {
-            Email em = new Email(this.account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
+            Email em = new Email(account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
             try {
                 MsgProtocol<Email> msg = new MsgProtocol<>(em, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);

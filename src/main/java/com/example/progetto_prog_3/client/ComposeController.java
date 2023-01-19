@@ -30,7 +30,7 @@ public class ComposeController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String account = "giacomo@jmail.com";
+    private String account;
     @FXML
     private TextField destinatario;
 
@@ -50,6 +50,10 @@ public class ComposeController {
 
     @FXML
     private TextArea messaggio;
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
     private boolean controllaMail(String indirizzoMail) {
         String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}";
@@ -86,7 +90,7 @@ public class ComposeController {
         } else if(messaggio.getText().trim().equals("")) {
             somethingMissing.setText("ATTENZIONE: Il corpo dell'email non può essere vuoto");
         } else {
-            Email em = new Email(this.account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
+            Email em = new Email(account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
             try {
                 MsgProtocol<Email> msg = new MsgProtocol<>(em, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);
@@ -125,10 +129,14 @@ public class ComposeController {
     }
 
     public void home(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("home-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
+        root = loader.load();
+
+        HomeController homeController = loader.getController();
+        homeController.setAccount(account);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("JMail | " + this.account);
+        stage.setTitle("JMail | " + account);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

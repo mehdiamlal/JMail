@@ -18,53 +18,52 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class App extends Application {
-    private String account = "giacomo@jmail.com";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("JMail | " + account);
+        stage.setTitle("JMail | Login");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
-        ex.scheduleAtFixedRate(() -> {
-            Socket s = null;
-            try {
-                s = new Socket(InetAddress.getLocalHost(), 8082);
-                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-                ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-                MsgProtocol<String> req = new MsgProtocol<>(this.account, MsgProtocol.MsgAction.GET_NOTIFICATION_FOR_USER_REQUEST);
-                out.writeObject(req);
-                out.flush();
-                MsgProtocol<Integer> res = (MsgProtocol<Integer>) in.readObject();
-
-                if(res.getMsg() > 0) {
-                    Platform.runLater(() -> {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("JMail | Alert");
-                        alert.setHeaderText("Nuove email per " + account);
-                        if(res.getMsg() == 1) {
-                            alert.setContentText("Hai 1 nuova email.");
-                        } else {
-                            alert.setContentText("Hai " + res.getMsg() + " nuove email.");
-                        }
-                        alert.showAndWait();
-                    });
-                }
-
-            } catch (IOException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            } finally {
-                if(s != null) {
-                    try {
-                        s.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }, 0, 5, TimeUnit.SECONDS);
+//        ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
+//        ex.scheduleAtFixedRate(() -> {
+//            Socket s = null;
+//            try {
+//                s = new Socket(InetAddress.getLocalHost(), 8082);
+//                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+//                ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+//                MsgProtocol<String> req = new MsgProtocol<>(account, MsgProtocol.MsgAction.GET_NOTIFICATION_FOR_USER_REQUEST);
+//                out.writeObject(req);
+//                out.flush();
+//                MsgProtocol<Integer> res = (MsgProtocol<Integer>) in.readObject();
+//
+//                if(res.getMsg() > 0) {
+//                    Platform.runLater(() -> {
+//                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                        alert.setTitle("JMail | Alert");
+//                        alert.setHeaderText("Nuove email per " + account);
+//                        if(res.getMsg() == 1) {
+//                            alert.setContentText("Hai 1 nuova email.");
+//                        } else {
+//                            alert.setContentText("Hai " + res.getMsg() + " nuove email.");
+//                        }
+//                        alert.showAndWait();
+//                    });
+//                }
+//
+//            } catch (IOException | ClassNotFoundException e) {
+//                throw new RuntimeException(e);
+//            } finally {
+//                if(s != null) {
+//                    try {
+//                        s.close();
+//                    } catch (IOException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                }
+//            }
+//        }, 0, 5, TimeUnit.SECONDS);
     }
 
     public static void main(String[] args) {

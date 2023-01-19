@@ -31,7 +31,7 @@ public class ReplyController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String account = "giacomo@jmail.com";
+    private String account;
 
     @FXML
     private ChoiceBox<String> destinatari;
@@ -47,12 +47,16 @@ public class ReplyController {
     @FXML
     private Label somethingMissing;
 
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
     public void setEmail(Email email, boolean replyAll) {
         //inizializzo con email dei destinatari
         replyingTo = email;
         if(replyAll) {
             listaDestinatari.addAll(replyingTo.getDestinatari());
-            listaDestinatari.remove(this.account);
+            listaDestinatari.remove(account);
             listaDestinatari.add(replyingTo.getMittente());
             destinatari.getItems().addAll(listaDestinatari);
         } else {
@@ -71,7 +75,7 @@ public class ReplyController {
         } else if(messaggio.getText().trim().equals("")) {
             somethingMissing.setText("ATTENZIONE: Il corpo dell'email non può essere vuoto");
         } else {
-            Email em = new Email(this.account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
+            Email em = new Email(account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
             try {
                 MsgProtocol<Email> msg = new MsgProtocol<>(em, MsgProtocol.MsgAction.SEND_EMAIL_REQUEST);
@@ -105,10 +109,15 @@ public class ReplyController {
     }
 
     public void home(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("home-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
+        root = loader.load();
+
+        HomeController homeController = loader.getController();
+        homeController.setAccount(account);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("JMail | " + this.account);
+        stage.setTitle("JMail | " + account);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

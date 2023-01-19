@@ -18,5 +18,45 @@
     "argomento": "RE: Test3",
     "testo": "ok test3",
     "data": "Sun Jan 15 13:16:32 CET 2023"
+  },
+  {
+    "id": 1909,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "wewe",
+    "testo": "weeeeeee",
+    "data": "Thu Jan 19 20:32:07 CET 2023"
+  },
+  {
+    "id": 1911,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "gg",
+    "testo": "gg",
+    "data": "Thu Jan 19 20:42:52 CET 2023"
+  },
+  {
+    "id": 1913,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "ciaoo",
+    "testo": "dddd",
+    "data": "Thu Jan 19 20:48:59 CET 2023"
+  },
+  {
+    "id": 1912,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: come va",
+    "testo": "bun",
+    "data": "Thu Jan 19 21:48:50 CET 2023"
   }
 ]

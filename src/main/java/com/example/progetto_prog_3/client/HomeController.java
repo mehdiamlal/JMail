@@ -28,12 +28,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String account = "giacomo@jmail.com";
+    private String account;
 
     @FXML
     private ListView<Email> inboxList;
@@ -48,12 +48,10 @@ public class HomeController implements Initializable {
     @FXML
     private Button readBtn;
 
-    public HomeController() {
-    }
+    public void setAccount(String account) {
+        this.account = account;
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(account);
         readBtn.setDisable(true);
         Gson gson = new Gson();
         String json = "";
@@ -63,7 +61,7 @@ public class HomeController implements Initializable {
             s = new Socket(InetAddress.getLocalHost(), 8082);
             ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-            MsgProtocol<String> req = new MsgProtocol<>(this.account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+            MsgProtocol<String> req = new MsgProtocol<>(account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
@@ -76,7 +74,7 @@ public class HomeController implements Initializable {
 
             //aggiorniamo la inbox locale...
             json = gson.toJson(inbox);
-            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/inbox.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
             writer.write(json);
             System.out.println("Inbox locale aggiornata.");
             writer.close();
@@ -96,7 +94,7 @@ public class HomeController implements Initializable {
         }
         json = "";
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("./local_data/inbox.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("./local_data/mailboxes/" + account + "/in.txt"));
             String line;
             while((line = reader.readLine()) != null) {
                 json += line;
@@ -130,7 +128,7 @@ public class HomeController implements Initializable {
             s = new Socket(InetAddress.getLocalHost(), 8082);
             ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-            MsgProtocol<String> req = new MsgProtocol<>(this.account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+            MsgProtocol<String> req = new MsgProtocol<>(account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
@@ -142,7 +140,7 @@ public class HomeController implements Initializable {
 
             //aggiorniamo la inbox locale...
             json = gson.toJson(inbox);
-            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/inbox.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
             writer.write(json);
             System.out.println("Inbox locale aggiornata.");
             writer.close();
@@ -162,7 +160,7 @@ public class HomeController implements Initializable {
         }
         json = "";
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("./local_data/inbox.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("./local_data/mailboxes/" + account + "/in.txt"));
             String line;
             while((line = reader.readLine()) != null) {
                 json += line;
@@ -187,6 +185,7 @@ public class HomeController implements Initializable {
         } catch(IOException e) {
             System.out.println(e.getMessage());
         }
+        readBtn.setDisable(true);
     }
 
     public void read(ActionEvent event) throws IOException {
@@ -194,6 +193,7 @@ public class HomeController implements Initializable {
         root = loader.load();
 
         ReaderController readerController = loader.getController();
+        readerController.setAccount(account);
         readerController.setEmail(selectedEmail);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -205,7 +205,12 @@ public class HomeController implements Initializable {
     }
 
     public void compose(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("compose-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("compose-view.fxml"));
+        root = loader.load();
+
+        ComposeController composeController = loader.getController();
+        composeController.setAccount(account);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("JMail | Componi");

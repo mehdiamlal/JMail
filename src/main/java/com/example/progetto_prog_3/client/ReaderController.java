@@ -18,7 +18,7 @@ public class ReaderController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String account = "giacomo@jmail.com";
+    private String account;
 
     @FXML
     private TextField mittente;
@@ -32,6 +32,10 @@ public class ReaderController {
     @FXML
     private TextArea messaggio;
 
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
     public void setEmail(Email e) {
         email = e;
         mittente.setText(email.getMittente());
@@ -41,10 +45,15 @@ public class ReaderController {
     }
 
     public void home(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("home-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
+        root = loader.load();
+
+        HomeController homeController = loader.getController();
+        homeController.setAccount(account);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("JMail | " + this.account);
+        stage.setTitle("JMail | " + account);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -55,6 +64,7 @@ public class ReaderController {
         root = loader.load();
 
         ReplyController replyController = loader.getController();
+        replyController.setAccount(account);
         replyController.setEmail(email, false);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -70,6 +80,7 @@ public class ReaderController {
         root = loader.load();
 
         ReplyController replyController = loader.getController();
+        replyController.setAccount(account);
         replyController.setEmail(email, true);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -85,6 +96,7 @@ public class ReaderController {
         root = loader.load();
 
         ForwardController forwardController = loader.getController();
+        forwardController.setAccount(account);
         forwardController.setEmail(this.email);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
