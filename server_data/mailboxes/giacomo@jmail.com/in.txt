@@ -58,5 +58,15 @@
     "argomento": "giacccccc",
     "testo": "cccccc",
     "data": "Fri Jan 20 14:03:22 CET 2023"
+  },
+  {
+    "id": 1928,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "[inoltrata] test5",
+    "testo": "t5",
+    "data": "Fri Jan 20 14:13:46 CET 2023"
   }
 ]

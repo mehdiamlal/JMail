@@ -134,6 +134,7 @@ public class ComposeController {
 
         HomeController homeController = loader.getController();
         homeController.setAccount(account);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("JMail | " + account);

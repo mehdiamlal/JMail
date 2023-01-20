@@ -61,7 +61,7 @@ public class ForwardController {
     public void setEmail(Email email) {
         this.toBeForwarded = email;
         // Non li setto nell'initialize per evitare la NUllPointerException
-        oggetto.setText("(inoltrata)" + toBeForwarded.getArgomento());
+        oggetto.setText("[inoltrata] " + toBeForwarded.getArgomento());
         messaggio.setText(toBeForwarded.getTesto());
     }
     private boolean controllaMail(String indirizzoMail) {
@@ -135,6 +135,7 @@ public class ForwardController {
 
         ReaderController readerController = loader.getController();
         readerController.setEmail(toBeForwarded);
+        readerController.setAccount(account);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
