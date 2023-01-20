@@ -115,41 +115,4 @@ public class ReaderController {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void delete(ActionEvent event) throws IOException {
-        //apre popup che chiede se si è sicuri di voler eliminare l'email
-        //poi riporta alla home, in caso si abbia eliminato la mail
-        Gson gson = new Gson();
-        String json = "";
-        Socket s = null;
-        BufferedWriter writer = null;
-        try {
-            s = new Socket(InetAddress.getLocalHost(), 8082);
-            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-            MsgProtocol<Pair<String, Email>> req = new MsgProtocol<>(new Pair<>(account, email), MsgProtocol.MsgAction.REMOVE_EMAIL_REQUEST);
-            out.writeObject(req);
-            out.flush();
-            MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
-            if(res.getError() == MsgProtocol.MsgError.NO_ERROR) {
-                List<Email> inbox = res.getMsg().getInMessages();
-
-                json = gson.toJson(inbox);
-                writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
-                writer.write(json);
-                System.out.println("Inbox locale aggiornata.");
-                home(event);
-            } else {
-                //mostra un errore di eliminazione
-            }
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if(writer != null) writer.close();
-            } catch(IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
 }
