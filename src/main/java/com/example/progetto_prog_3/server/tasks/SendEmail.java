@@ -46,19 +46,19 @@ public class SendEmail {
         out.flush();
     }
 
-    public static List<String> sendEmail(MsgProtocol<Email> msg, IDClass idClass, Map<String, UserDirectory> userDirectoryMap, ObjectOutputStream out) throws IOException {
-        List<String> listOfWrongEmail;
-        Email readEmail = msg.getMsg();
-        listOfWrongEmail = sendMessages(readEmail,idClass,userDirectoryMap);
-        sendBackResponse(listOfWrongEmail,out);
-        return listOfWrongEmail;
-    }
-
     public static List<String> sendEmail(Email email, IDClass idClass, Map<String, UserDirectory> userDirectoryMap, ObjectOutputStream out) throws IOException {
-        List<String> listOfWrongEmail;
-        listOfWrongEmail = sendMessages(email,idClass,userDirectoryMap);
-        sendBackResponse(listOfWrongEmail,out);
-        return listOfWrongEmail;
+        if(userDirectoryMap.containsKey(email.getMittente())){
+            List<String> listOfWrongEmail;
+            listOfWrongEmail = sendMessages(email,idClass,userDirectoryMap);
+            sendBackResponse(listOfWrongEmail,out);
+            return listOfWrongEmail;
+        }
+        else{
+            MsgProtocol<List<String>> respMsg = new MsgProtocol<>(null, MsgProtocol.MsgAction.SEND_EMAIL_RESPONSE, MsgProtocol.MsgError.WRONG_SENDER_EMAIL);
+            out.writeObject(respMsg);
+            out.flush();
+            throw new IOException("Wrong sender Email");
+        }
     }
 
 }

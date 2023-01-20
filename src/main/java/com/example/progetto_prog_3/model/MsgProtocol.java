@@ -21,7 +21,8 @@ public class MsgProtocol<T> implements Serializable {
     public enum MsgError {
         NO_ERROR,
         WRONG_EMAIL,
-        EMAIL_DOESNT_EXIST
+        EMAIL_DOESNT_EXIST,
+        WRONG_SENDER_EMAIL
     }
 
     private final T msg;
