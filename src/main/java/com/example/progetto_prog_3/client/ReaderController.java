@@ -1,6 +1,9 @@
 package com.example.progetto_prog_3.client;
 
 import com.example.progetto_prog_3.model.Email;
+import com.example.progetto_prog_3.model.Inbox;
+import com.example.progetto_prog_3.model.MsgProtocol;
+import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +14,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReaderController {
     private Stage stage;
@@ -110,5 +119,37 @@ public class ReaderController {
     public void delete(ActionEvent event) throws IOException {
         //apre popup che chiede se si è sicuri di voler eliminare l'email
         //poi riporta alla home, in caso si abbia eliminato la mail
+        Gson gson = new Gson();
+        String json = "";
+        Socket s = null;
+        BufferedWriter writer = null;
+        try {
+            s = new Socket(InetAddress.getLocalHost(), 8082);
+            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+            MsgProtocol<Pair<String, Email>> req = new MsgProtocol<>(new Pair<>(account, email), MsgProtocol.MsgAction.REMOVE_EMAIL_REQUEST);
+            out.writeObject(req);
+            out.flush();
+            MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
+            if(res.getError() == MsgProtocol.MsgError.NO_ERROR) {
+                List<Email> inbox = res.getMsg().getInMessages();
+
+                json = gson.toJson(inbox);
+                writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
+                writer.write(json);
+                System.out.println("Inbox locale aggiornata.");
+                home(event);
+            } else {
+                //mostra un errore di eliminazione
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if(writer != null) writer.close();
+            } catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
