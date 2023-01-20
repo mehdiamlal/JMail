@@ -58,6 +58,9 @@ public class HomeController {
     @FXML
     private Button deleteBtn;
 
+    @FXML
+    private Label errorMsg;
+
     public void getInbox() {
         Gson gson = new Gson();
         String json = "";
@@ -84,8 +87,6 @@ public class HomeController {
             writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
             writer.write(json);
             System.out.println("Inbox locale aggiornata.");
-            readBtn.setDisable(true);
-            deleteBtn.setDisable(true);
         } catch(IOException e) {
             //do nothing, we'll fetch data from local inbox
         } catch (ClassNotFoundException e) {
@@ -127,6 +128,8 @@ public class HomeController {
                     }
                 }
             });
+            readBtn.setDisable(true);
+            deleteBtn.setDisable(true);
         } catch(IOException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -178,11 +181,14 @@ public class HomeController {
             } else {
                 //mostra un errore di eliminazione
             }
-        } catch (ClassNotFoundException | IOException e) {
-            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());;
+        } catch (IOException e) {
+            errorMsg.setText("Impossibile eliminare l'email,\nriprovare più tardi.");
         } finally {
             try {
                 if(writer != null) writer.close();
+                if(s != null) s.close();
             } catch(IOException e) {
                 System.out.println(e.getMessage());
             }
