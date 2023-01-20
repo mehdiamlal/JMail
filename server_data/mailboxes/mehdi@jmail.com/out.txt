@@ -88,5 +88,66 @@
     "argomento": "ww",
     "testo": "ddddddddd",
     "data": "Thu Jan 19 22:46:52 CET 2023"
+  },
+  {
+    "id": 1917,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "test1",
+    "testo": "t1",
+    "data": "Fri Jan 20 12:42:30 CET 2023"
+  },
+  {
+    "id": 1919,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com",
+      "giacomo@jmail.com"
+    ],
+    "argomento": "test2",
+    "testo": "t2",
+    "data": "Fri Jan 20 12:51:37 CET 2023"
+  },
+  {
+    "id": 1920,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "t3",
+    "testo": "t3",
+    "data": "Fri Jan 20 12:52:19 CET 2023"
+  },
+  {
+    "id": 1921,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "t4",
+    "testo": "t4",
+    "data": "Fri Jan 20 12:55:17 CET 2023"
+  },
+  {
+    "id": 1924,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "hgdsf",
+    "testo": "fdfgdfg",
+    "data": "Fri Jan 20 14:02:26 CET 2023"
+  },
+  {
+    "id": 1925,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "giacccccc",
+    "testo": "cccccc",
+    "data": "Fri Jan 20 14:03:22 CET 2023"
   }
 ]

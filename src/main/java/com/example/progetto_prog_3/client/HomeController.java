@@ -113,6 +113,7 @@ public class HomeController {
                 inbox = new Email[0];
             }
 
+            inboxList.getItems().clear();
             inboxList.getItems().addAll(inbox);
             inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
                 @Override
@@ -165,6 +166,7 @@ public class HomeController {
                             alert.setContentText("Hai " + res.getMsg() + " nuove email.");
                         }
                         alert.showAndWait();
+                        getInbox();
                     });
                 }
 

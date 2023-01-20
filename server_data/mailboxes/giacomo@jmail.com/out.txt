@@ -58,5 +58,26 @@
     "argomento": "RE: come va",
     "testo": "bun",
     "data": "Thu Jan 19 21:48:50 CET 2023"
+  },
+  {
+    "id": 1918,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mirko@jmail.com"
+    ],
+    "argomento": "test1",
+    "testo": "t1",
+    "data": "Fri Jan 20 12:43:50 CET 2023"
+  },
+  {
+    "id": 1922,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "mirko@jmail.com"
+    ],
+    "argomento": "test5",
+    "testo": "t5",
+    "data": "Fri Jan 20 12:57:18 CET 2023"
   }
 ]
