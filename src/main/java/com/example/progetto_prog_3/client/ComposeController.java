@@ -52,7 +52,7 @@ public class ComposeController {
     private TextArea messaggio;
 
     public void setAccount(String account) {
-        this.account = account;
+        this.account = account.trim().toLowerCase();
     }
 
     private boolean controllaMail(String indirizzoMail) {

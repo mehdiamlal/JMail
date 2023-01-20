@@ -1,0 +1,1 @@
+[{"id":1930,"mittente":"mehdi@jmail.com","destinatari":["andrea@jmail.com"],"argomento":"Filtrata?","testo":"Bro ma alla fine l\u0027acqua è filtrata???","data":"Fri Jan 20 18:14:49 CET 2023"}]

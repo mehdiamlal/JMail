@@ -144,7 +144,7 @@ public class HomeController {
     }
 
     public void setAccount(String account) {
-        this.account = account;
+        this.account = account.trim().toLowerCase();
         getInbox();
         ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
         AskForNewEmails task = new AskForNewEmails(account, this);     //task che va a reperire se ci sono nuove email

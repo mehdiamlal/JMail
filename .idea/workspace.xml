@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="835e9b75-727c-4729-8899-6935d0d6dda7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_data/mailboxes/andrea@jmail.com/in.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_data/mailboxes/andrea@jmail.com/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/inbox.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/mailboxes/giacomo@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local_data/mailboxes/giacomo@jmail.com/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/mailboxes/mehdi@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local_data/mailboxes/mehdi@jmail.com/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/mailboxes/mirko@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local_data/mailboxes/andrea@jmail.com/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/mailboxes/mirko@jmail.com/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local_data/mailboxes/andrea@jmail.com/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_data/sent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mirko@jmail.com/cnew_email.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/andrea@jmail.com/cnew_email.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mirko@jmail.com/in.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mirko@jmail.com/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ComposeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ComposeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReplyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +68,23 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.progetto_prog_3.client.App" />
+      <module name="progetto_prog_3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.progetto_prog_3.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.progetto_prog_3.server.Server" />
       <module name="progetto_prog_3" />
@@ -66,8 +98,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.Server" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -80,7 +117,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674232567471</updated>
-      <workItem from="1674232568740" duration="197000" />
+      <workItem from="1674232568740" duration="2390000" />
     </task>
     <servers />
   </component>

@@ -55,7 +55,7 @@ public class ForwardController {
     private TextArea messaggio;
 
     public void setAccount(String account) {
-        this.account = account;
+        this.account = account.trim().toLowerCase();
     }
 
     public void setEmail(Email email) {

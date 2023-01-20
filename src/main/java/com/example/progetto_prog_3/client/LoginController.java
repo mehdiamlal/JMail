@@ -42,7 +42,7 @@ public class LoginController implements Initializable {
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            stage.setTitle("JMail | " + emailTxt.getText());
+            stage.setTitle("JMail | " + emailTxt.getText().trim().toLowerCase());
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
@@ -55,6 +55,6 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accounts.add("mehdi@jmail.com");
         accounts.add("giacomo@jmail.com");
-        accounts.add("mirko@jmail.com");
+        accounts.add("andrea@jmail.com");
     }
 }

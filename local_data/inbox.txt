@@ -1,1 +1,0 @@
-[{"id":1920,"mittente":"giacomo@jmail.com","destinatari":["mehdi@jmail.com"],"argomento":"RE: Test3","testo":"ok test3","data":"Sun Jan 15 13:16:32 CET 2023"}]

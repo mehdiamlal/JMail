@@ -1,1 +1,0 @@
-[{"id":-1,"mittente":"mehdi@jmail.com","destinatari":["mirko@jmail.com"],"argomento":"Partita di squash","testo":"Venite alla partita di squash di domani che ci servono due giocatori.\n\nPoi andiamo a prendere una bella pizza!\n\nMehdi \u003c3","data":"Sun Jan 15 11:05:50 CET 2023"}]

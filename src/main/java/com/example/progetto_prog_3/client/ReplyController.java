@@ -48,7 +48,7 @@ public class ReplyController {
     private Label somethingMissing;
 
     public void setAccount(String account) {
-        this.account = account;
+        this.account = account.trim().toLowerCase();
     }
 
     public void setEmail(Email email, boolean replyAll) {
@@ -63,7 +63,11 @@ public class ReplyController {
             destinatari.getItems().addAll(replyingTo.getMittente());
             listaDestinatari.add(replyingTo.getMittente());
         }
-        oggetto.setText("RE: " + replyingTo.getArgomento());
+        if(!replyingTo.getArgomento().startsWith("RE: ")) {  //per non creare tanti RE: RE: RE: in una discussione
+            oggetto.setText("RE: " + replyingTo.getArgomento());
+        } else {
+            oggetto.setText(replyingTo.getArgomento());
+        }
     }
 
     @FXML

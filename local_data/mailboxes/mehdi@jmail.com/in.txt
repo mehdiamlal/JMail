@@ -1,1 +1,1 @@
-[{"id":1931,"mittente":"giacomo@jmail.com","destinatari":["mehdi@jmail.com"],"argomento":"wewewe","testo":"weeee","data":"Fri Jan 20 15:25:26 CET 2023"},{"id":1922,"mittente":"giacomo@jmail.com","destinatari":["mehdi@jmail.com","mirko@jmail.com"],"argomento":"test5","testo":"t5","data":"Fri Jan 20 12:57:18 CET 2023"}]
+[{"id":1931,"mittente":"andrea@jmail.com","destinatari":["mehdi@jmail.com"],"argomento":"RE: Filtrata?","testo":"OVVIO!","data":"Fri Jan 20 18:15:06 CET 2023"}]

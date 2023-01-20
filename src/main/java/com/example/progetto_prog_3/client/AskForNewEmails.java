@@ -16,7 +16,7 @@ public class AskForNewEmails implements Runnable{
     private HomeController homeController;
 
     public AskForNewEmails(String account, HomeController homeController) {
-        this.account = account;
+        this.account = account.trim().toLowerCase();
         this.homeController = homeController;
     }
 
