@@ -103,9 +103,9 @@ public class ForwardController {
                 out.writeObject(msg);
                 out.flush();
                 MsgProtocol<List<String>> resp = (MsgProtocol<List<String>>) in.readObject();
-                if(resp.getMsg() != null) {
+                if(resp.getMsg() != null && resp.getError() == MsgProtocol.MsgError.WRONG_EMAIL) {
                     somethingMissing.setText("Le seguenti email sono errate: " + resp.getMsg());
-                } else {
+                } else if(resp.getMsg() == null && resp.getError() == MsgProtocol.MsgError.NO_ERROR) {
                     somethingMissing.setTextFill(Color.color(0, 0, 0));
                     somethingMissing.setText("Email inviata con successo.");
                 }
@@ -116,7 +116,7 @@ public class ForwardController {
             } catch(IOException e) {
                 somethingMissing.setText("Impossibile inviare la mail al momento, riprovare più tardi.");
             } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             } finally {
                 try {
                     if(s != null) {

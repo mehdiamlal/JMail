@@ -31,5 +31,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="errorMsg" alignment="CENTER" layoutX="574.0" layoutY="371.0" prefHeight="35.0" prefWidth="243.0" textFill="#d01d1d" />
    </children>
 </AnchorPane>
