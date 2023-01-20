@@ -26,9 +26,6 @@ public class LoginController implements Initializable {
     private TextField emailTxt;
 
     @FXML
-    private Button loginBtn;
-
-    @FXML
     private Label errorMsg;
 
     private ArrayList<String> accounts = new ArrayList<>();
