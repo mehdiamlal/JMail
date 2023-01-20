@@ -26,7 +26,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="refreashBtn" layoutX="637.0" layoutY="163.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="123.0" text="Aggiorna">
+      <Button fx:id="deleteBtn" layoutX="637.0" layoutY="305.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="123.0" text="Elimina" textFill="#d01d1d">
          <font>
             <Font size="18.0" />
          </font>

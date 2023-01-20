@@ -19,12 +19,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import javax.swing.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -53,8 +55,12 @@ public class HomeController {
     @FXML
     private Button readBtn;
 
+    @FXML
+    private Button deleteBtn;
+
     private void getInbox() {
         readBtn.setDisable(true);
+        deleteBtn.setDisable(true);
         Gson gson = new Gson();
         String json = "";
         selectedEmail = null;
@@ -95,8 +101,9 @@ public class HomeController {
             }
         }
         json = "";
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("./local_data/mailboxes/" + account + "/in.txt"));
+            reader = new BufferedReader(new FileReader("./local_data/mailboxes/" + account + "/in.txt"));
             String line;
             while((line = reader.readLine()) != null) {
                 json += line;
@@ -105,7 +112,6 @@ public class HomeController {
             if(inbox == null) {  //se non ci sono email ricevute...
                 inbox = new Email[0];
             }
-            reader.close();
 
             inboxList.getItems().addAll(inbox);
             inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
@@ -113,12 +119,23 @@ public class HomeController {
                 public void changed(ObservableValue<? extends Email> observableValue, Email email, Email t1) {
                     selectedEmail = inboxList.getSelectionModel().getSelectedItem();
                     readBtn.setDisable(false);
-                    mittente.setText(inboxList.getSelectionModel().getSelectedItem().getMittente());
-                    data.setText(inboxList.getSelectionModel().getSelectedItem().getData());
+                    deleteBtn.setDisable(false);
+                    if(inboxList.getSelectionModel().getSelectedItem() != null) {
+                        mittente.setText(inboxList.getSelectionModel().getSelectedItem().getMittente());
+                        data.setText(inboxList.getSelectionModel().getSelectedItem().getData());
+                    }
                 }
             });
         } catch(IOException e) {
             System.out.println(e.getMessage());
+        } finally {
+            if(reader != null) {
+                try {
+                    reader.close();
+                } catch(IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
@@ -165,72 +182,45 @@ public class HomeController {
         }, 0, 1, TimeUnit.SECONDS);
     }
 
-    public void refresh(ActionEvent event) {
+    public void delete(ActionEvent event) {
         Gson gson = new Gson();
         String json = "";
         Socket s = null;
+        BufferedWriter writer = null;
         try {
             s = new Socket(InetAddress.getLocalHost(), 8082);
             ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-            MsgProtocol<String> req = new MsgProtocol<>(account, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST);
+            MsgProtocol<Pair<String, Email>> req = new MsgProtocol<>(new Pair<>(account, selectedEmail), MsgProtocol.MsgAction.REMOVE_EMAIL_REQUEST);
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
-            List<Email> inbox = res.getMsg().getInMessages();
-            if(inbox != null) {
-                Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
+            if(res.getError() == MsgProtocol.MsgError.NO_ERROR) {
+                List<Email> inbox = res.getMsg().getInMessages();
+
+                json = gson.toJson(inbox);
+                writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
+                writer.write(json);
+                System.out.println("Inbox locale aggiornata.");
+
+                //aggiorniamo graficamente
+                Collections.reverse(inbox);
+                inboxList.getItems().clear();
+                inboxList.getItems().addAll(inbox);
+                readBtn.setDisable(true);
+                deleteBtn.setDisable(true);
+            } else {
+                //mostra un errore di eliminazione
             }
-
-
-            //aggiorniamo la inbox locale...
-            json = gson.toJson(inbox);
-            BufferedWriter writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
-            writer.write(json);
-            System.out.println("Inbox locale aggiornata.");
-            writer.close();
-
-        } catch(IOException e) {
-            //do nothing, we'll fetch data from local inbox
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
         } finally {
-            if(s != null) {
-                try {
-                    s.close();
-                } catch(IOException e) {
-                    System.out.println(e.getMessage());
-                }
+            try {
+                if(writer != null) writer.close();
+            } catch(IOException e) {
+                System.out.println(e.getMessage());
             }
         }
-        json = "";
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("./local_data/mailboxes/" + account + "/in.txt"));
-            String line;
-            while((line = reader.readLine()) != null) {
-                json += line;
-            }
-            inbox = gson.fromJson(json, Email[].class);
-            if(inbox == null) {  //se non ci sono email ricevute...
-                inbox = new Email[0];
-            }
-            reader.close();
-
-            inboxList.getItems().clear();
-            inboxList.getItems().addAll(inbox);
-            inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
-                @Override
-                public void changed(ObservableValue<? extends Email> observableValue, Email email, Email t1) {
-                    selectedEmail = inboxList.getSelectionModel().getSelectedItem();
-                    readBtn.setDisable(false);
-                    mittente.setText(inboxList.getSelectionModel().getSelectedItem().getMittente());
-                    data.setText(inboxList.getSelectionModel().getSelectedItem().getData());
-                }
-            });
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
-        }
-        readBtn.setDisable(true);
     }
 
     public void read(ActionEvent event) throws IOException {
