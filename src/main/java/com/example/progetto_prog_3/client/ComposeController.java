@@ -115,7 +115,7 @@ public class ComposeController {
             } catch(IOException e) {
                 somethingMissing.setText("Impossibile inviare la mail al momento, riprovare più tardi.");
             } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             } finally {
                 try {
                     if(s != null) {
