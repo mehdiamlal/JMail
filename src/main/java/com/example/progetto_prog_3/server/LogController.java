@@ -21,11 +21,6 @@ public class LogController {
         loglistview.setItems(log.getMylog());
     }
 
-    @FXML
-    public void foo(){
-        log.writeLog("ciao");
-    }
-
 
     @FXML
     public void stopServer(ActionEvent event){
