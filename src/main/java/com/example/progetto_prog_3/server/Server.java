@@ -32,6 +32,7 @@ public class Server extends Application {
 
     @Override
     public void init() throws Exception {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> closeServer()));
         this.log = new Log();
         File id_txt = new File("./server_data/id.txt");
         try {
@@ -124,10 +125,14 @@ public class Server extends Application {
         closeServer();
     }
 
-    void closeServer() throws IOException {
+    void closeServer(){
         System.out.println("chiudo");
         serverStatus = false;
-        serverSocket.close();
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         threadPool.shutdown();
         try {
             threadPool.awaitTermination(5, TimeUnit.SECONDS);

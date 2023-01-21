@@ -27,23 +27,13 @@ public class UserDirectory {
         return email;
     }
 
-    public File getInFile() {
-        return inFile;
-    }
-
-    public File getOutFile() {
-        return outFile;
-    }
-
     /*legge la stringa json dal file , la trasforma in un oggetto lista di email,aggiunge la mail alla lista,ritrasforma la lista in json e riscreve sul file */
-    public void writeOnInMessageFile(Email emailWithId) {
+    public void writeOnInMessageFile(Email emailWithId) throws IOException {
         synchronized (inFile) {
             PrintWriter writer = null;
             BufferedReader reader = null;
-
             Gson g = new GsonBuilder().setPrettyPrinting().create();
             try {
-
                 StringBuilder sb = new StringBuilder(); //stringa per costruire la collezione json
                 reader = new BufferedReader(new FileReader(inFile));
                 String line = reader.readLine();
@@ -64,14 +54,12 @@ public class UserDirectory {
                 String parsedString = g.toJson(je);
                 writer = new PrintWriter(inFile);
                 writer.println(parsedString); //scrivi su file il json modificato
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            } finally {
+                writer.flush();
+            }finally {
                 try {
                     if (reader != null)
                         reader.close();
                     if (writer != null) {
-                        writer.flush();
                         writer.close();
                     }
                 } catch (IOException e) {
@@ -81,7 +69,7 @@ public class UserDirectory {
         }
     }
 
-    public void writeOnOutMessageFile(Email emailWithId) {
+    public void writeOnOutMessageFile(Email emailWithId) throws IOException {
         synchronized (outFile) {
             PrintWriter writer = null;
             BufferedReader reader = null;
@@ -107,14 +95,12 @@ public class UserDirectory {
                 String parsedString = g.toJson(je);
                 writer = new PrintWriter(outFile);
                 writer.println(parsedString); //scrivi su file il json modificato
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            } finally {
+                writer.flush();
+            }finally {
                 try {
                     if (reader != null)
                         reader.close();
                     if (writer != null) {
-                        writer.flush();
                         writer.close();
                     }
                 } catch (IOException e) {
@@ -129,44 +115,54 @@ public class UserDirectory {
         BufferedReader reader = null;
         Gson g = new GsonBuilder().setPrettyPrinting().create();
         StringBuilder sb = new StringBuilder();
-        synchronized (inFile){
-            reader = new BufferedReader(new FileReader(inFile));
-            String line = reader.readLine();
-            while (line != null) {
-                sb.append(line);
-                line = reader.readLine();
-            }
-            String data = sb.toString();
-            Type type = new TypeToken<List<Email>>() {
-            }.getType();
-            List<Email> list = g.fromJson(data, type);
-            if(list == null){   //se la lista è null , non esistono email,ritorna false
-                reader.close();
+        synchronized (inFile) {
+            try {
+                reader = new BufferedReader(new FileReader(inFile));
+                String line = reader.readLine();
+                while (line != null) {
+                    sb.append(line);
+                    line = reader.readLine();
+                }
+                String data = sb.toString();
+                Type type = new TypeToken<List<Email>>() {
+                }.getType();
+                List<Email> list = g.fromJson(data, type);
+                if (list == null) {   //se la lista è null , non esistono email,ritorna false
+                    reader.close();
+                    return false;
+                }
+                if (list.remove(emailToRemove)) {
+                    String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
+                    JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
+                    String parsedString = g.toJson(je);
+                    writer = new PrintWriter(inFile);
+                    writer.println(parsedString);
+                    writer.flush();
+                    return true;
+                }
                 return false;
+            }finally {
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                    if (writer != null) {
+                        writer.close();
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-            if(list.remove(emailToRemove)){
-                String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
-                JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
-                String parsedString = g.toJson(je);
-                writer = new PrintWriter(inFile);
-                writer.println(parsedString);
-                reader.close();
-                writer.flush();
-                writer.close();
-                return true;
-            }
-            reader.close();
-            return false;
         }
     }
 
-    public List<Email> getInMessages(){
+    public List<Email> getInMessages() throws IOException {
         List<Email> list = null;
         Gson g = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
-        try{
+        try {
             StringBuilder sb = new StringBuilder();
-            synchronized (inFile){
+            synchronized (inFile) {
                 reader = new BufferedReader(new FileReader(inFile));
                 String line = reader.readLine();
                 while (line != null) {
@@ -178,31 +174,25 @@ public class UserDirectory {
             Type type = new TypeToken<List<Email>>() {
             }.getType();
             list = g.fromJson(data, type);
-
-//            Type type = new TypeToken<List<Email>>() {
-//            }.getType();
-//            list = g.fromJson(data, type);
-        }catch (IOException e){
-            throw new RuntimeException();
+            return list;
         }finally {
             if (reader != null) {
                 try {
                     reader.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
                 }
             }
         }
-        return list;
     }
 
-    public List<Email> getOutMessages(){
+    public List<Email> getOutMessages() throws IOException {
         List<Email> list = null;
         Gson g = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader reader = null;
-        try{
+        try {
             StringBuilder sb = new StringBuilder();
-            synchronized (outFile){
+            synchronized (outFile) {
                 reader = new BufferedReader(new FileReader(outFile));
                 String line = reader.readLine();
                 while (line != null) {
@@ -214,58 +204,59 @@ public class UserDirectory {
             Type type = new TypeToken<List<Email>>() {
             }.getType();
             list = g.fromJson(data, type);
-        }catch (IOException e){
-            throw new RuntimeException();
+            return list;
         }finally {
             if (reader != null) {
                 try {
                     reader.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
                 }
             }
         }
-        return list;
     }
 
-    public void increaseNewEmail(){
+    public void increaseNewEmail() throws IOException {
         int count = readNewEmailCount();
         count++;
-        synchronized (cnew_emailFile){
+        FileWriter fw = null;
+        synchronized (cnew_emailFile) {
             try {
-                FileWriter fw = new FileWriter(cnew_emailFile);
+                fw = new FileWriter(cnew_emailFile);
                 fw.write(Integer.toString(count));
                 fw.flush();
-                fw.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } finally {
+                if (fw != null) {
+                    fw.close();
+                }
             }
         }
     }
 
-    public int readNewEmailCount(){
-        synchronized (cnew_emailFile){
+    public int readNewEmailCount() throws IOException {
+        BufferedReader br = null;
+        synchronized (cnew_emailFile) {
             try {
                 FileReader fr = new FileReader(cnew_emailFile);
-                BufferedReader br = new BufferedReader(fr);
-                int counter = Integer.parseInt(br.readLine());
-                br.close();
-                return counter;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                br = new BufferedReader(fr);
+                return Integer.parseInt(br.readLine());
+            } finally {
+                if (br != null) {
+                    br.close();
+                }
             }
         }
     }
 
-    public void resetNewEmailCount(){
-        synchronized (cnew_emailFile){
+    public void resetNewEmailCount() throws IOException {
+        FileWriter fw = null;
+        synchronized (cnew_emailFile) {
             try {
-                FileWriter fw = new FileWriter(cnew_emailFile);
+                fw = new FileWriter(cnew_emailFile);
                 fw.write("0");
                 fw.flush();
+            } finally {
                 fw.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
     }

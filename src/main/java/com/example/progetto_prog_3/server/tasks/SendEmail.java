@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SendEmail {
-    private static List<String> sendMessages(Email email, IDClass idClass, Map<String, UserDirectory> userDirectoryMap) {
+    private static List<String> sendMessages(Email email, IDClass idClass, Map<String, UserDirectory> userDirectoryMap) throws IOException {
         List<String> listOfWrongEmail = new ArrayList<>();
         email.setId(idClass.getIdAndIncrease());
         for (String receiver : email.getDestinatari()) {        //scorri tutti i destinatari della mail

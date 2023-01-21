@@ -29,6 +29,5 @@ public class RemoveEmail {
             out.flush();
             return false;
         }
-
     }
 }

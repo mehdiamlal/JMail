@@ -111,10 +111,10 @@ public class RequestHandler implements Runnable {
                             printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" eliminata con successo");
                         }
                         else{
-                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" inesistente oppure qualcosa è andato storto");
+                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" inesistente ");
                         }
                     } catch (IOException ex) {
-                        System.out.println(ex.getMessage());
+                        printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" qualcosa è andato storto nella rimozione");
                     }
                     break;
             }
