@@ -97,17 +97,14 @@ public class Server extends Application {
         stage.setTitle("Server");
         stage.setScene(scene);
         LogController controller = fxmlLoader.getController();
-        Thread socketThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (serverStatus) {
-                    try {
-                        Socket so = serverSocket.accept();
-                        RequestHandler requestHandler = new RequestHandler(userDirectoryMap, so, idClass, log);
-                        threadPool.execute(requestHandler);
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
+        Thread socketThread = new Thread(() -> {
+            while (serverStatus) {
+                try {
+                    Socket so = serverSocket.accept();
+                    RequestHandler requestHandler = new RequestHandler(userDirectoryMap, so, idClass, log);
+                    threadPool.execute(requestHandler);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         });
