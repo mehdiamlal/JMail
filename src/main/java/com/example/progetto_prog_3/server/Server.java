@@ -57,7 +57,7 @@ public class Server extends Application {
             if(userDirectoryMap == null){
                 closeServer();
             }
-            threadPool = Executors.newFixedThreadPool(userDirectoryMap.size());
+            threadPool = Executors.newFixedThreadPool(5);
             serverSocket = new ServerSocket(8082);
             serverStatus = true;
         } catch (IOException e) {
