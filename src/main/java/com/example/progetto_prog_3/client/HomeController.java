@@ -41,6 +41,7 @@ public class HomeController {
     private Scene scene;
     private Parent root;
     private String account;
+    private ScheduledExecutorService notificationExecutor;
 
     @FXML
     private ListView<Email> inboxList;
@@ -75,7 +76,6 @@ public class HomeController {
             out.writeObject(req);
             out.flush();
             MsgProtocol<Inbox> res = (MsgProtocol<Inbox>) in.readObject();
-            System.out.println(res.getMsg());
             List<Email> inbox = res.getMsg().getInMessages();
             if(inbox != null) {
                 Collections.reverse(inbox);  //facciamo la reverse della inbox per avere i nuovi messaggi sempre al top della lista
@@ -86,9 +86,9 @@ public class HomeController {
             json = gson.toJson(inbox);
             writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
             writer.write(json);
-            System.out.println("Inbox locale aggiornata.");
         } catch(IOException e) {
             //do nothing, we'll fetch data from local inbox
+            System.out.println(e.getMessage());
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());;
         } finally {
@@ -116,6 +116,7 @@ public class HomeController {
 
             inboxList.getItems().clear();
             inboxList.getItems().addAll(inbox);
+            System.out.println("Ho aggiornato la PD di lista");
             inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
                 @Override
                 public void changed(ObservableValue<? extends Email> observableValue, Email email, Email t1) {
@@ -146,16 +147,9 @@ public class HomeController {
     public void setAccount(String account) {
         this.account = account.trim().toLowerCase();
         getInbox();
-    }
-
-    public void setAccount(String account, boolean firstTime) {
-        this.account = account.trim().toLowerCase();
-        getInbox();
-        if(firstTime) {
-            ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
-            AskForNewEmails task = new AskForNewEmails(account, this);     //task che va a reperire se ci sono nuove email
-            ex.scheduleAtFixedRate(task , 2, 1, TimeUnit.SECONDS);  //2 secondi di delay per evitare che appena si apre il client si ottenga una notifica
-        }
+        notificationExecutor = new ScheduledThreadPoolExecutor(1);
+        AskForNewEmails task = new AskForNewEmails(account, this);     //task che va a reperire se ci sono nuove email
+        notificationExecutor.scheduleAtFixedRate(task , 2, 1, TimeUnit.SECONDS);//2 secondi di delay per evitare che appena si apre il client si ottenga una notifica
     }
 
     public void delete(ActionEvent event) {
@@ -177,7 +171,6 @@ public class HomeController {
                 json = gson.toJson(inbox);
                 writer = new BufferedWriter(new FileWriter("./local_data/mailboxes/" + account + "/in.txt"));
                 writer.write(json);
-                System.out.println("Inbox locale aggiornata.");
 
                 //aggiorniamo graficamente
                 Collections.reverse(inbox);
@@ -209,6 +202,7 @@ public class HomeController {
         ReaderController readerController = loader.getController();
         readerController.setAccount(account);
         readerController.setEmail(selectedEmail);
+        readerController.setNotificationExecutor(notificationExecutor);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -219,11 +213,13 @@ public class HomeController {
     }
 
     public void compose(ActionEvent event) throws IOException {
+        notificationExecutor.shutdown();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("compose-view.fxml"));
         root = loader.load();
 
         ComposeController composeController = loader.getController();
         composeController.setAccount(account);
+        composeController.setNotificationExecutor(notificationExecutor);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

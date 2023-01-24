@@ -8,5 +8,162 @@
     "argomento": "RE: Filtrata?",
     "testo": "OVVIO!",
     "data": "Fri Jan 20 18:15:06 CET 2023"
+  },
+  {
+    "id": 1934,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "mirko@jmail.com"
+    ],
+    "argomento": "mmmm",
+    "testo": "mmmmm",
+    "data": "Tue Jan 24 12:24:31 CET 2023"
+  },
+  {
+    "id": 1935,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "giogio@jmail.com",
+      "mehdi@jmail.com"
+    ],
+    "argomento": "fff",
+    "testo": "ffff",
+    "data": "Tue Jan 24 12:25:00 CET 2023"
+  },
+  {
+    "id": 1939,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "ciao",
+    "testo": "ciao",
+    "data": "Tue Jan 24 12:27:57 CET 2023"
+  },
+  {
+    "id": 1945,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "giacddomo@jmail.com",
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: deee",
+    "testo": "hhhhh",
+    "data": "Tue Jan 24 12:32:58 CET 2023"
+  },
+  {
+    "id": 1948,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "perché cazzo non funzionano le notifiche dio...",
+    "testo": "dffffffff",
+    "data": "Tue Jan 24 12:34:54 CET 2023"
+  },
+  {
+    "id": 1949,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com"
+    ],
+    "argomento": "ddd",
+    "testo": "ddddd",
+    "data": "Tue Jan 24 12:35:51 CET 2023"
+  },
+  {
+    "id": 1950,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com",
+      "andrddea@jmail.com"
+    ],
+    "argomento": "ZZ",
+    "testo": "asz",
+    "data": "Tue Jan 24 12:36:29 CET 2023"
+  },
+  {
+    "id": 1953,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mimmo@jmail.com",
+      "giacomo@jmail.com"
+    ],
+    "argomento": "RE: dddssdsfs",
+    "testo": "cccc",
+    "data": "Tue Jan 24 12:39:26 CET 2023"
+  },
+  {
+    "id": 1955,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "giacomo@jmail.com"
+    ],
+    "argomento": "RE: dede",
+    "testo": "dddd",
+    "data": "Tue Jan 24 12:42:56 CET 2023"
+  },
+  {
+    "id": 1957,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: dd",
+    "testo": "gggg",
+    "data": "Tue Jan 24 12:44:41 CET 2023"
+  },
+  {
+    "id": 1959,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "mimmo@jmail.com"
+    ],
+    "argomento": "kjjjjj",
+    "testo": "hhggghhg",
+    "data": "Tue Jan 24 12:47:35 CET 2023"
+  },
+  {
+    "id": 1961,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: kjjjjj",
+    "testo": "cc",
+    "data": "Tue Jan 24 12:50:53 CET 2023"
+  },
+  {
+    "id": 1963,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "1",
+    "testo": "1",
+    "data": "Tue Jan 24 12:58:39 CET 2023"
+  },
+  {
+    "id": 1964,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "2",
+    "testo": "2",
+    "data": "Tue Jan 24 12:59:03 CET 2023"
+  },
+  {
+    "id": 1965,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "3",
+    "testo": "3",
+    "data": "Tue Jan 24 12:59:10 CET 2023"
   }
 ]

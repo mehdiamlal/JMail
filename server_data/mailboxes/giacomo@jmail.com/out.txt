@@ -19,5 +19,48 @@
     "argomento": "nuova mail",
     "testo": "prova",
     "data": "Sat Jan 21 12:25:54 CET 2023"
+  },
+  {
+    "id": 1951,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "gggg",
+    "testo": "ggggg",
+    "data": "Tue Jan 24 12:38:15 CET 2023"
+  },
+  {
+    "id": 1952,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com",
+      "mimmo@jmail.com"
+    ],
+    "argomento": "dddssdsfs",
+    "testo": "fdfdsfddfsdsf",
+    "data": "Tue Jan 24 12:38:59 CET 2023"
+  },
+  {
+    "id": 1954,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "dede",
+    "testo": "dddd",
+    "data": "Tue Jan 24 12:42:26 CET 2023"
+  },
+  {
+    "id": 1973,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "viviana@jmail.com",
+      "mehdi@jmail.com"
+    ],
+    "argomento": "RE: funge?",
+    "testo": "si dai",
+    "data": "Tue Jan 24 14:41:31 CET 2023"
   }
 ]

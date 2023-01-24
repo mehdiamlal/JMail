@@ -43,7 +43,9 @@ public class AskForNewEmails implements Runnable{
                         alert.setContentText("Hai " + res.getMsg() + " nuove email.");
                     }
                     alert.showAndWait();
+                    System.out.println("ARRIVO QUI" + account);
                     homeController.getInbox(); //aggiorna la listview se sono nella home
+                    System.out.println("LHO FATTO!" + account);
                 });
             }
 

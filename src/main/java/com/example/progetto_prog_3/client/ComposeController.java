@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.regex.Pattern;
 
 public class ComposeController {
@@ -31,6 +32,7 @@ public class ComposeController {
     private Scene scene;
     private Parent root;
     private String account;
+    private ScheduledExecutorService notificationExecutor;
     @FXML
     private TextField destinatario;
 
@@ -53,6 +55,10 @@ public class ComposeController {
 
     public void setAccount(String account) {
         this.account = account.trim().toLowerCase();
+    }
+
+    public void setNotificationExecutor(ScheduledExecutorService notificationExecutor) {
+        this.notificationExecutor = notificationExecutor;
     }
 
     private boolean controllaMail(String indirizzoMail) {
@@ -129,6 +135,7 @@ public class ComposeController {
     }
 
     public void home(ActionEvent event) throws IOException {
+        notificationExecutor.shutdown();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
         root = loader.load();
 

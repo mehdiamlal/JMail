@@ -26,12 +26,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class ReplyController {
     private Stage stage;
     private Scene scene;
     private Parent root;
     private String account;
+    private ScheduledExecutorService notificationExecutor;
 
     @FXML
     private ChoiceBox<String> destinatari;
@@ -49,6 +51,10 @@ public class ReplyController {
 
     public void setAccount(String account) {
         this.account = account.trim().toLowerCase();
+    }
+
+    public void setNotificationExecutor(ScheduledExecutorService notificationExecutor) {
+        this.notificationExecutor = notificationExecutor;
     }
 
     public void setEmail(Email email, boolean replyAll) {
@@ -113,6 +119,7 @@ public class ReplyController {
     }
 
     public void home(ActionEvent event) throws IOException{
+        notificationExecutor.shutdown();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
         root = loader.load();
 

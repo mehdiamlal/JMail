@@ -8,5 +8,233 @@
     "argomento": "Filtrata?",
     "testo": "Bro ma alla fine l\u0027acqua è filtrata???",
     "data": "Fri Jan 20 18:14:49 CET 2023"
+  },
+  {
+    "id": 1932,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacomo@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "test",
+    "testo": "t",
+    "data": "Tue Jan 24 12:17:03 CET 2023"
+  },
+  {
+    "id": 1936,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giogio@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: fff",
+    "testo": "fffffffff",
+    "data": "Tue Jan 24 12:25:24 CET 2023"
+  },
+  {
+    "id": 1937,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giogio@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: fff",
+    "testo": "fffdsferwrrg",
+    "data": "Tue Jan 24 12:25:33 CET 2023"
+  },
+  {
+    "id": 1938,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giogio@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: fff",
+    "testo": "ffffddfdggd",
+    "data": "Tue Jan 24 12:27:32 CET 2023"
+  },
+  {
+    "id": 1940,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "ddfs",
+    "testo": "fdsfd",
+    "data": "Tue Jan 24 12:28:48 CET 2023"
+  },
+  {
+    "id": 1942,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "dfff",
+    "testo": "fffffff",
+    "data": "Tue Jan 24 12:29:42 CET 2023"
+  },
+  {
+    "id": 1943,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: ciao",
+    "testo": "fffffffff",
+    "data": "Tue Jan 24 12:30:06 CET 2023"
+  },
+  {
+    "id": 1944,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "giacddomo@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "deee",
+    "testo": "eeeeee",
+    "data": "Tue Jan 24 12:32:25 CET 2023"
+  },
+  {
+    "id": 1946,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "dddd",
+    "testo": "xxccc",
+    "data": "Tue Jan 24 12:33:50 CET 2023"
+  },
+  {
+    "id": 1947,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "fuji",
+    "testo": "fffff",
+    "data": "Tue Jan 24 12:34:09 CET 2023"
+  },
+  {
+    "id": 1951,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "gggg",
+    "testo": "ggggg",
+    "data": "Tue Jan 24 12:38:15 CET 2023"
+  },
+  {
+    "id": 1952,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com",
+      "mimmo@jmail.com"
+    ],
+    "argomento": "dddssdsfs",
+    "testo": "fdfdsfddfsdsf",
+    "data": "Tue Jan 24 12:38:59 CET 2023"
+  },
+  {
+    "id": 1954,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "dede",
+    "testo": "dddd",
+    "data": "Tue Jan 24 12:42:26 CET 2023"
+  },
+  {
+    "id": 1956,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "dd",
+    "testo": "dd",
+    "data": "Tue Jan 24 12:44:28 CET 2023"
+  },
+  {
+    "id": 1958,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: dd",
+    "testo": "cccc",
+    "data": "Tue Jan 24 12:46:55 CET 2023"
+  },
+  {
+    "id": 1960,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "mimmo@jmail.com",
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: kjjjjj",
+    "testo": "ddd",
+    "data": "Tue Jan 24 12:47:51 CET 2023"
+  },
+  {
+    "id": 1966,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: 3",
+    "testo": "4",
+    "data": "Tue Jan 24 12:59:41 CET 2023"
+  },
+  {
+    "id": 1967,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "RE: 3",
+    "testo": "dd",
+    "data": "Tue Jan 24 13:00:16 CET 2023"
+  },
+  {
+    "id": 1968,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "jjj",
+    "testo": "jjj",
+    "data": "Tue Jan 24 14:09:33 CET 2023"
+  },
+  {
+    "id": 1969,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "d",
+    "testo": "d",
+    "data": "Tue Jan 24 14:21:28 CET 2023"
+  },
+  {
+    "id": 1970,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "dddd",
+    "testo": "dddd",
+    "data": "Tue Jan 24 14:21:53 CET 2023"
+  },
+  {
+    "id": 1971,
+    "mittente": "mehdi@jmail.com",
+    "destinatari": [
+      "andrea@jmail.com"
+    ],
+    "argomento": "pipo",
+    "testo": "ppp",
+    "data": "Tue Jan 24 14:35:41 CET 2023"
   }
 ]

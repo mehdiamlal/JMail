@@ -22,12 +22,14 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class ReaderController {
     private Stage stage;
     private Scene scene;
     private Parent root;
     private String account;
+    private ScheduledExecutorService notificationExecutor;
 
     @FXML
     private TextField mittente;
@@ -45,6 +47,10 @@ public class ReaderController {
         this.account = account.trim().toLowerCase();
     }
 
+    public void setNotificationExecutor(ScheduledExecutorService notificationExecutor) {
+        this.notificationExecutor = notificationExecutor;
+    }
+
     public void setEmail(Email e) {
         email = e;
         mittente.setText(email.getMittente());
@@ -54,6 +60,7 @@ public class ReaderController {
     }
 
     public void home(ActionEvent event) throws IOException {
+        notificationExecutor.shutdown();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("home-view.fxml"));
         root = loader.load();
 
@@ -75,6 +82,7 @@ public class ReaderController {
         ReplyController replyController = loader.getController();
         replyController.setAccount(account);
         replyController.setEmail(email, false);
+        replyController.setNotificationExecutor(notificationExecutor);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -91,6 +99,7 @@ public class ReaderController {
         ReplyController replyController = loader.getController();
         replyController.setAccount(account);
         replyController.setEmail(email, true);
+        replyController.setNotificationExecutor(notificationExecutor);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

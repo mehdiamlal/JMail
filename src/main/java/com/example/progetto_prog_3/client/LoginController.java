@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
             root = loader.load();
 
             HomeController homeController = loader.getController();
-            homeController.setAccount(emailTxt.getText(), true);
+            homeController.setAccount(emailTxt.getText());
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
