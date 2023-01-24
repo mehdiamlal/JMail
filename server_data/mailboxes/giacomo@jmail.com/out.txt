@@ -62,5 +62,35 @@
     "argomento": "RE: funge?",
     "testo": "si dai",
     "data": "Tue Jan 24 14:41:31 CET 2023"
+  },
+  {
+    "id": 1976,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "ciao",
+    "testo": "ciao",
+    "data": "Tue Jan 24 15:04:54 CET 2023"
+  },
+  {
+    "id": 1977,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "ciaone",
+    "testo": "ddd",
+    "data": "Tue Jan 24 15:05:33 CET 2023"
+  },
+  {
+    "id": 1978,
+    "mittente": "giacomo@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "wewewe",
+    "testo": "we",
+    "data": "Tue Jan 24 15:07:35 CET 2023"
   }
 ]

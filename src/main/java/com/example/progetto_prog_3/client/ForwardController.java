@@ -32,6 +32,7 @@ public class ForwardController {
     private Scene scene;
     private Parent root;
     private String account;
+    private ScheduledExecutorService notificationExecuter;
 
     private ArrayList<Email> sentEmails;
     private Email toBeForwarded;
@@ -57,6 +58,10 @@ public class ForwardController {
 
     public void setAccount(String account) {
         this.account = account.trim().toLowerCase();
+    }
+
+    public void setNotificationExecuter(ScheduledExecutorService notificationExecuter) {
+        this.notificationExecuter = notificationExecuter;
     }
 
     public void setEmail(Email email) {
@@ -137,6 +142,7 @@ public class ForwardController {
         ReaderController readerController = loader.getController();
         readerController.setEmail(toBeForwarded);
         readerController.setAccount(account);
+        readerController.setNotificationExecutor(notificationExecuter);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

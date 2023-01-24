@@ -165,5 +165,25 @@
     "argomento": "3",
     "testo": "3",
     "data": "Tue Jan 24 12:59:10 CET 2023"
+  },
+  {
+    "id": 1974,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "j",
+    "testo": "j",
+    "data": "Tue Jan 24 15:00:14 CET 2023"
+  },
+  {
+    "id": 1975,
+    "mittente": "andrea@jmail.com",
+    "destinatari": [
+      "mehdi@jmail.com"
+    ],
+    "argomento": "ciao",
+    "testo": "123",
+    "data": "Tue Jan 24 15:01:11 CET 2023"
   }
 ]

@@ -116,7 +116,6 @@ public class HomeController {
 
             inboxList.getItems().clear();
             inboxList.getItems().addAll(inbox);
-            System.out.println("Ho aggiornato la PD di lista");
             inboxList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Email>() {
                 @Override
                 public void changed(ObservableValue<? extends Email> observableValue, Email email, Email t1) {
@@ -213,7 +212,6 @@ public class HomeController {
     }
 
     public void compose(ActionEvent event) throws IOException {
-        notificationExecutor.shutdown();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("compose-view.fxml"));
         root = loader.load();
 

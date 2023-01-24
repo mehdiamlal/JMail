@@ -116,6 +116,7 @@ public class ReaderController {
         ForwardController forwardController = loader.getController();
         forwardController.setAccount(account);
         forwardController.setEmail(this.email);
+        forwardController.setNotificationExecuter(notificationExecutor);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
