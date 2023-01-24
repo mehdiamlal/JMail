@@ -146,9 +146,16 @@ public class HomeController {
     public void setAccount(String account) {
         this.account = account.trim().toLowerCase();
         getInbox();
-        ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
-        AskForNewEmails task = new AskForNewEmails(account, this);     //task che va a reperire se ci sono nuove email
-        ex.scheduleAtFixedRate(task , 2, 1, TimeUnit.SECONDS);  //2 secondi di delay per evitare che appena si apre il client si ottenga una notifica
+    }
+
+    public void setAccount(String account, boolean firstTime) {
+        this.account = account.trim().toLowerCase();
+        getInbox();
+        if(firstTime) {
+            ScheduledExecutorService ex = new ScheduledThreadPoolExecutor(1);
+            AskForNewEmails task = new AskForNewEmails(account, this);     //task che va a reperire se ci sono nuove email
+            ex.scheduleAtFixedRate(task , 2, 1, TimeUnit.SECONDS);  //2 secondi di delay per evitare che appena si apre il client si ottenga una notifica
+        }
     }
 
     public void delete(ActionEvent event) {

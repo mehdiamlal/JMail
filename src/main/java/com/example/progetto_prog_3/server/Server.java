@@ -118,7 +118,7 @@ public class Server extends Application {
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         closeServer();
     }
 
