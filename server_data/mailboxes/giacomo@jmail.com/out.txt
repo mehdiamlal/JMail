@@ -1,96 +1,23 @@
 [
   {
-    "id": 1930,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "mehdi@gmail.com",
-      "andrea@gmail.com"
-    ],
-    "argomento": "prova email",
-    "testo": "ciao",
-    "data": "Sat Jan 21 12:25:16 CET 2023"
-  },
-  {
-    "id": 1931,
+    "id": 1979,
     "mittente": "giacomo@jmail.com",
     "destinatari": [
       "mehdi@jmail.com"
     ],
-    "argomento": "nuova mail",
-    "testo": "prova",
-    "data": "Sat Jan 21 12:25:54 CET 2023"
+    "argomento": "Vieni alla partita?",
+    "testo": "Sabato c\u0027è una partita di beach volley, ci sei?",
+    "data": "Thu Jan 26 07:53:10 CET 2023"
   },
   {
-    "id": 1951,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "andrea@jmail.com"
-    ],
-    "argomento": "gggg",
-    "testo": "ggggg",
-    "data": "Tue Jan 24 12:38:15 CET 2023"
-  },
-  {
-    "id": 1952,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "andrea@jmail.com",
-      "mimmo@jmail.com"
-    ],
-    "argomento": "dddssdsfs",
-    "testo": "fdfdsfddfsdsf",
-    "data": "Tue Jan 24 12:38:59 CET 2023"
-  },
-  {
-    "id": 1954,
+    "id": 1981,
     "mittente": "giacomo@jmail.com",
     "destinatari": [
       "mehdi@jmail.com",
       "andrea@jmail.com"
     ],
-    "argomento": "dede",
-    "testo": "dddd",
-    "data": "Tue Jan 24 12:42:26 CET 2023"
-  },
-  {
-    "id": 1973,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "viviana@jmail.com",
-      "mehdi@jmail.com"
-    ],
-    "argomento": "RE: funge?",
-    "testo": "si dai",
-    "data": "Tue Jan 24 14:41:31 CET 2023"
-  },
-  {
-    "id": 1976,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "mehdi@jmail.com"
-    ],
-    "argomento": "ciao",
-    "testo": "ciao",
-    "data": "Tue Jan 24 15:04:54 CET 2023"
-  },
-  {
-    "id": 1977,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "mehdi@jmail.com"
-    ],
-    "argomento": "ciaone",
-    "testo": "ddd",
-    "data": "Tue Jan 24 15:05:33 CET 2023"
-  },
-  {
-    "id": 1978,
-    "mittente": "giacomo@jmail.com",
-    "destinatari": [
-      "mehdi@jmail.com"
-    ],
-    "argomento": "wewewe",
-    "testo": "we",
-    "data": "Tue Jan 24 15:07:35 CET 2023"
+    "argomento": "Progetto",
+    "testo": "Il 26 abbiamo la discussione del progetto di prog 3",
+    "data": "Thu Jan 26 07:54:09 CET 2023"
   }
 ]

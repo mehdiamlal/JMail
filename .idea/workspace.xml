@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="835e9b75-727c-4729-8899-6935d0d6dda7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local_data/mailboxes/mehdi@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local_data/mailboxes/mehdi@jmail.com/in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/andrea@jmail.com/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/andrea@jmail.com/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/giacomo@jmail.com/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server_data/mailboxes/mehdi@jmail.com/in.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +46,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/JeckRush/Desktop/progetto-Prog3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/heymehdi/Desktop/progetto-Prog3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -116,7 +108,9 @@
       <workItem from="1674297025558" duration="3539000" />
       <workItem from="1674300931843" duration="10000" />
       <workItem from="1674551077807" duration="9589000" />
-      <workItem from="1674563222091" duration="4634000" />
+      <workItem from="1674563222091" duration="5247000" />
+      <workItem from="1674641890176" duration="255000" />
+      <workItem from="1674680556817" duration="1095000" />
     </task>
     <servers />
   </component>
