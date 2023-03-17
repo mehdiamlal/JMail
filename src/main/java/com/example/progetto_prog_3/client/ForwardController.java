@@ -67,7 +67,7 @@ public class ForwardController {
     public void setEmail(Email email) {
         this.toBeForwarded = email;
         // Non li setto nell'initialize per evitare la NUllPointerException
-        oggetto.setText("[inoltrata] " + toBeForwarded.getArgomento());
+        oggetto.setText("[forwarded] " + toBeForwarded.getArgomento());
         messaggio.setText(toBeForwarded.getTesto());
     }
     private boolean controllaMail(String indirizzoMail) {
@@ -90,14 +90,14 @@ public class ForwardController {
             destinatari.setText(stringaDestinatari);
             destinatario.setText("");
         } else {
-            invalidEmail.setText("Inserire un'email valida.");
+            invalidEmail.setText("Type in a valid email.");
         }
     }
 
     @FXML
     protected void forwardEmail() {
         if(listaDestinatari.size() == 0) {
-            somethingMissing.setText("ATTEZIONE: Aggiungere almeno un destinatario.");
+            somethingMissing.setText("WARNING: Please add at least one receiver address.");
         } else {
             Email em = new Email(account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
@@ -110,17 +110,17 @@ public class ForwardController {
                 out.flush();
                 MsgProtocol<List<String>> resp = (MsgProtocol<List<String>>) in.readObject();
                 if(resp.getMsg() != null && resp.getError() == MsgProtocol.MsgError.WRONG_EMAIL) {
-                    somethingMissing.setText("Le seguenti email sono errate: " + resp.getMsg());
+                    somethingMissing.setText("The following email addresses are wrong: " + resp.getMsg());
                 } else if(resp.getMsg() == null && resp.getError() == MsgProtocol.MsgError.NO_ERROR) {
                     somethingMissing.setTextFill(Color.color(0, 0, 0));
-                    somethingMissing.setText("Email inviata con successo.");
+                    somethingMissing.setText("Email sent successfully.");
                 }
                 destinatario.setText("");
                 listaDestinatari = new ArrayList<>();
                 destinatari.setText("");
                 stringaDestinatari = "";
             } catch(IOException e) {
-                somethingMissing.setText("Impossibile inviare la mail al momento, riprovare più tardi.");
+                somethingMissing.setText("Unable to send the email at the moment, please try later.");
             } catch (ClassNotFoundException e) {
                 System.out.println(e.getMessage());
             } finally {

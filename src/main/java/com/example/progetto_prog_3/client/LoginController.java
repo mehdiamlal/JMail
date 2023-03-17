@@ -47,7 +47,7 @@ public class LoginController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } else {
-            errorMsg.setText("Attenzione! L'utente selezionato non esiste.");
+            errorMsg.setText("Warning! The selected user doesn't exist.");
         }
     }
 

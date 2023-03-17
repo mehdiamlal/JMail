@@ -86,7 +86,7 @@ public class ReaderController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Jmail | Rispondi");
+        stage.setTitle("Jmail | Reply");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -103,7 +103,7 @@ public class ReaderController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Jmail | Rispondi a tutti");
+        stage.setTitle("Jmail | Reply all");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -120,7 +120,7 @@ public class ReaderController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Jmail | Inoltra");
+        stage.setTitle("Jmail | Forward");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

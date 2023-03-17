@@ -15,12 +15,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="88.0" layoutY="83.0" prefHeight="23.0" prefWidth="32.0" text="Da:">
+      <Label layoutX="73.0" layoutY="83.0" prefHeight="23.0" prefWidth="47.0" text="From:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="49.0" layoutY="127.0" text="Oggetto:">
+      <Label layoutX="52.0" layoutY="127.0" text="Subject:">
          <font>
             <Font size="18.0" />
          </font>
@@ -37,23 +37,23 @@
          <font>
             <Font size="15.0" />
          </font></TextArea>
-      <Label layoutX="28.0" layoutY="167.0" text="Destinatari:">
+      <Label layoutX="34.0" layoutY="166.0" text="Receivers:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="destinatari" layoutX="138.0" layoutY="164.0" prefWidth="150.0" />
-      <Button fx:id="replyBtn" layoutX="159.0" layoutY="561.0" mnemonicParsing="false" onAction="#reply" prefHeight="40.0" prefWidth="102.0" text="Rispondi">
+      <Button fx:id="replyBtn" layoutX="159.0" layoutY="561.0" mnemonicParsing="false" onAction="#reply" prefHeight="40.0" prefWidth="102.0" text="Reply">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="replyAllBtn" layoutX="273.0" layoutY="561.0" mnemonicParsing="false" onAction="#replyAll" prefHeight="40.0" prefWidth="140.0" text="Rispondi a tutti">
+      <Button fx:id="replyAllBtn" layoutX="273.0" layoutY="561.0" mnemonicParsing="false" onAction="#replyAll" prefHeight="40.0" prefWidth="140.0" text="Reply All">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="forwardBtn" layoutX="423.0" layoutY="561.0" mnemonicParsing="false" onAction="#forward" prefHeight="40.0" prefWidth="102.0" text="Inoltra">
+      <Button fx:id="forwardBtn" layoutX="423.0" layoutY="561.0" mnemonicParsing="false" onAction="#forward" prefHeight="40.0" prefWidth="102.0" text="Forward">
          <font>
             <Font size="18.0" />
          </font>

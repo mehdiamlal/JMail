@@ -183,7 +183,7 @@ public class HomeController {
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());;
         } catch (IOException e) {
-            errorMsg.setText("Impossibile eliminare l'email,\nriprovare più tardi.");
+            errorMsg.setText("Unable to send the email,\ntry later.");
         } finally {
             try {
                 if(writer != null) writer.close();
@@ -221,7 +221,7 @@ public class HomeController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("JMail | Componi");
+        stage.setTitle("JMail | Compose");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

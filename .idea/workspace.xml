@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="835e9b75-727c-4729-8899-6935d0d6dda7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/server/modules/UserDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/server/modules/UserDirectory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/server/tasks/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/server/tasks/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/AskForNewEmails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ComposeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ComposeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ForwardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progetto_prog_3/client/ReplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/compose-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/compose-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/forward-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/forward-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/reader-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/reader-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/reply-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progetto_prog_3/client/reply-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +125,7 @@
       <workItem from="1674641890176" duration="255000" />
       <workItem from="1674680556817" duration="1095000" />
       <workItem from="1674715779910" duration="368000" />
-      <workItem from="1679064704875" duration="571000" />
+      <workItem from="1679064704875" duration="1998000" />
     </task>
     <servers />
   </component>

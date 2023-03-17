@@ -36,11 +36,11 @@ public class AskForNewEmails implements Runnable{
                 Platform.runLater(() -> {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("JMail | Alert");
-                    alert.setHeaderText("Nuove email per " + account);
+                    alert.setHeaderText("New emails for " + account);
                     if(res.getMsg() == 1) {
-                        alert.setContentText("Hai 1 nuova email.");
+                        alert.setContentText("You have 1 new email.");
                     } else {
-                        alert.setContentText("Hai " + res.getMsg() + " nuove email.");
+                        alert.setContentText("You have " + res.getMsg() + " new emails.");
                     }
                     alert.showAndWait();
                     homeController.getInbox(); //aggiorna la listview se sono nella home

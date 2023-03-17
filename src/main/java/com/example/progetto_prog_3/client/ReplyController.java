@@ -81,9 +81,9 @@ public class ReplyController {
         somethingMissing.setText("");
         somethingMissing.setTextFill(Color.rgb(208, 29, 29));
         if(oggetto.getText().trim().equals("")) {
-            somethingMissing.setText("ATTENZIONE: Il campo 'Oggetto' non può essere vuoto.");
+            somethingMissing.setText("WARNING: The field 'Subject' cannot be empty.");
         } else if(messaggio.getText().trim().equals("")) {
-            somethingMissing.setText("ATTENZIONE: Il corpo dell'email non può essere vuoto");
+            somethingMissing.setText("WARNING: The body of the email cannot be empty.");
         } else {
             Email em = new Email(account, listaDestinatari, oggetto.getText().trim(), messaggio.getText().trim(), new Date().toString());
             Socket s = null;
@@ -96,14 +96,14 @@ public class ReplyController {
                 out.flush();
                 MsgProtocol<List<String>> resp = (MsgProtocol<List<String>>) in.readObject();
                 if(resp.getMsg() != null && resp.getError() == MsgProtocol.MsgError.WRONG_EMAIL) {
-                    somethingMissing.setText("Le seguenti email sono errate: " + resp.getMsg());
+                    somethingMissing.setText("The following email addresses are wrong: " + resp.getMsg());
                 } else if(resp.getMsg() == null && resp.getError() == MsgProtocol.MsgError.NO_ERROR) {
                     somethingMissing.setTextFill(Color.color(0, 0, 0));
-                    somethingMissing.setText("Email inviata con successo.");
+                    somethingMissing.setText("Email sent successfully.");
                 }
                 messaggio.setText("");
             } catch(IOException e) {
-                somethingMissing.setText("Impossibile inviare la mail al momento, riprovare più tardi.");
+                somethingMissing.setText("Unable to send the email at the moment, please try later.");
             } catch (ClassNotFoundException e) {
                 System.out.println(e.getMessage());
             } finally {

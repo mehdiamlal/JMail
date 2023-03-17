@@ -10,12 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progetto_prog_3.client.ReplyController">
    <children>
-      <Label alignment="CENTER" layoutY="24.0" prefHeight="31.0" prefWidth="843.0" text="Rispondi">
+      <Label alignment="CENTER" layoutY="24.0" prefHeight="31.0" prefWidth="843.0" text="Reply">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="140.0" text="Oggetto:">
+      <Label layoutX="60.0" layoutY="140.0" text="Subject:">
          <font>
             <Font size="18.0" />
          </font>
@@ -28,12 +28,12 @@
          <font>
             <Font size="15.0" />
          </font></TextArea>
-      <Label layoutX="36.0" layoutY="93.0" text="Destinatari:">
+      <Label layoutX="44.0" layoutY="94.0" text="Receivers:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="sendBtn" layoutX="425.0" layoutY="565.0" mnemonicParsing="false" onAction="#sendEmail" prefHeight="40.0" prefWidth="102.0" text="Invia">
+      <Button fx:id="sendBtn" layoutX="425.0" layoutY="565.0" mnemonicParsing="false" onAction="#sendEmail" prefHeight="40.0" prefWidth="102.0" text="Send">
          <font>
             <Font size="18.0" />
          </font>
