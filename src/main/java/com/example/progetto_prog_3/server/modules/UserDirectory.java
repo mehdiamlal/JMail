@@ -27,14 +27,14 @@ public class UserDirectory {
         return email;
     }
 
-    /*legge la stringa json dal file , la trasforma in un oggetto lista di email,aggiunge la mail alla lista,ritrasforma la lista in json e riscreve sul file */
+    /*reads the json string from file, turns it into a list of Email objects, adds the email to the list, turns the list into json and overrides the file*/
     public void writeOnInMessageFile(Email emailWithId) throws IOException {
         synchronized (inFile) {
             PrintWriter writer = null;
             BufferedReader reader = null;
             Gson g = new GsonBuilder().setPrettyPrinting().create();
             try {
-                StringBuilder sb = new StringBuilder(); //stringa per costruire la collezione json
+                StringBuilder sb = new StringBuilder(); //string to construct the json collection
                 reader = new BufferedReader(new FileReader(inFile));
                 String line = reader.readLine();
                 while (line != null) {
@@ -44,16 +44,16 @@ public class UserDirectory {
                 String data = sb.toString();
                 Type type = new TypeToken<List<Email>>() {
                 }.getType();
-                List<Email> list = g.fromJson(data, type); //trasforma la stringa in una lista di modules.Email
+                List<Email> list = g.fromJson(data, type); //turns the string into a list of Email
                 if (list == null) {
-                    list = new ArrayList<>(); //è la prima volta che viene ricevuta una mail
+                    list = new ArrayList<>(); //first time an email is received
                 }
                 list.add(emailWithId);
-                String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
-                JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
+                String dataToWrite = g.toJson(list); //turns the list containing the new email into a string
+                JsonElement je = JsonParser.parseString(dataToWrite); //indent content to improve json readability
                 String parsedString = g.toJson(je);
                 writer = new PrintWriter(inFile);
-                writer.println(parsedString); //scrivi su file il json modificato
+                writer.println(parsedString); //override the file with new data
                 writer.flush();
             }finally {
                 try {
@@ -85,16 +85,16 @@ public class UserDirectory {
                 String data = sb.toString();
                 Type type = new TypeToken<List<Email>>() {
                 }.getType();
-                List<Email> list = g.fromJson(data, type); //trasforma la stringa in una lista di modules.Email
+                List<Email> list = g.fromJson(data, type);
                 if (list == null) {
-                    list = new ArrayList<>(); //è la prima volta che viene mandata una mail
+                    list = new ArrayList<>();
                 }
                 list.add(emailWithId);
-                String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
-                JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
+                String dataToWrite = g.toJson(list);
+                JsonElement je = JsonParser.parseString(dataToWrite);
                 String parsedString = g.toJson(je);
                 writer = new PrintWriter(outFile);
-                writer.println(parsedString); //scrivi su file il json modificato
+                writer.println(parsedString);
                 writer.flush();
             }finally {
                 try {
@@ -127,13 +127,13 @@ public class UserDirectory {
                 Type type = new TypeToken<List<Email>>() {
                 }.getType();
                 List<Email> list = g.fromJson(data, type);
-                if (list == null) {   //se la lista è null , non esistono email,ritorna false
+                if (list == null) {   //if list is null, there are no emails, return false
                     reader.close();
                     return false;
                 }
                 if (list.remove(emailToRemove)) {
-                    String dataToWrite = g.toJson(list); //ritrasforma la lista in stringa con la nuova mail al suo interno
-                    JsonElement je = JsonParser.parseString(dataToWrite); //fai un indent per facilitare la lettura del json
+                    String dataToWrite = g.toJson(list);
+                    JsonElement je = JsonParser.parseString(dataToWrite);
                     String parsedString = g.toJson(je);
                     writer = new PrintWriter(inFile);
                     writer.println(parsedString);

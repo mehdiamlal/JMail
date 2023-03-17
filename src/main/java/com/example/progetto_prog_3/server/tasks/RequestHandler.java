@@ -45,52 +45,52 @@ public class RequestHandler implements Runnable {
             out = new ObjectOutputStream(so.getOutputStream());
             msg = (MsgProtocol) in.readObject();
         } catch (IOException e) {
-            printToLog(log, "Qualcosa è andato storto "+e.getMessage());
+            printToLog(log, "Something went wrong "+e.getMessage());
         } catch (ClassNotFoundException e) {
-            printToLog(log, "Non riesco a deserializzare il messaggio"+e.getMessage());
+            printToLog(log, "Unable to de-serialize the message "+e.getMessage());
         }
         if(msg != null && in != null && out != null){
             switch (msg.getAction()) {
                 case SEND_EMAIL_REQUEST:
                     Email e = (Email) msg.getMsg();
-                    printToLog(log, e.getMittente() + " vuole inviare una mail");
+                    printToLog(log, e.getMittente() + " wants to send an email");
                     List<String> wrongEmail = null;
                     try {
                         wrongEmail = sendEmail(e, idClass, mapOfInbox, out);
                     } catch (IOException ex) {
-                        printToLog(log,"Non riesco a inviare la mail di ("+e.getMittente()+") : "+ex.getMessage());
+                        printToLog(log,"Unable to send ("+e.getMittente()+")'s email : "+ex.getMessage());
                     }
                     if (wrongEmail == null) {
-                        printToLog(log, "(" + e.getMittente() + ") email inviata con successo a tutti i destinatari");
+                        printToLog(log, "(" + e.getMittente() + ") email successfully sent to all receivers.");
                     } else {
-                        printToLog(log, "(" + e.getMittente() + ") alcuni destinari erano errati");
+                        printToLog(log, "(" + e.getMittente() + ") some receiver's emails are wrong.");
                     }
                     break;
                 case GET_INBOX_FOR_USER_IN_REQUEST:
                     String sender = (String) msg.getMsg();
-                    printToLog(log,sender+" richiede la inbox");
+                    printToLog(log,sender+" requestsn the inbox");
                     try {
                         if(sendBackInbox(sender, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_IN_REQUEST,mapOfInbox, out)){
-                            printToLog(log,"inbox inviata con successo a "+sender);
+                            printToLog(log,"inbox sent successfully to "+sender);
                         }else{
-                            printToLog(log,"email errata per la richiesta di inbox ("+sender+")");
+                            printToLog(log,"cannot find inbox for ("+sender+")");
                         }
                     } catch (IOException ex) {
-                        printToLog(log,"Non riesco a mandare indietro la inbox di "+sender+" "+ex.getMessage());
+                        printToLog(log,"Unable to send back inbox for "+sender+" "+ex.getMessage());
                     }
                     break;
                 case GET_INBOX_FOR_USER_OUT_REQUEST:
                     sender = (String) msg.getMsg();
-                    printToLog(log,sender+" richiede la inbox");
+                    printToLog(log,sender+" requests the inbox");
                     try {
                         if(sendBackInbox(sender, MsgProtocol.MsgAction.GET_INBOX_FOR_USER_OUT_REQUEST, mapOfInbox, out)){
-                            printToLog(log,"inbox inviata con successo a "+sender);
+                            printToLog(log,"inbox sent successfully to "+sender);
                         }
                         else{
-                            printToLog(log,"email errata per la richiesta di inbox ("+sender+")");
+                            printToLog(log,"cannot find inbox for ("+sender+")");
                         }
                     } catch (IOException ex) {
-                        printToLog(log,"Non riesco a mandare indietro la inbox di "+sender+" "+ex.getMessage());
+                        printToLog(log,"Unable to send back inbox for "+sender+" "+ex.getMessage());
                     }
                     break;
                 case GET_NOTIFICATION_FOR_USER_REQUEST:
@@ -105,16 +105,16 @@ public class RequestHandler implements Runnable {
                     Pair<String,Email> pair = (Pair<String, Email>) msg.getMsg();
                     String emailAddress = pair.getKey();
                     Email emailToRemove = pair.getValue();
-                    printToLog(log,emailAddress+" chiede di rimuovere la mail con ID = "+emailToRemove.getId());
+                    printToLog(log,emailAddress+" asks to remove email with ID = "+emailToRemove.getId());
                     try {
                         if(removeEmail(emailAddress,emailToRemove,mapOfInbox,out)){
-                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" eliminata con successo");
+                            printToLog(log,"User "+emailAddress+" Email ID = "+emailToRemove.getId()+" successfully deleted");
                         }
                         else{
-                            printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" inesistente ");
+                            printToLog(log,"User "+emailAddress+" Email ID = "+emailToRemove.getId()+" doesn't exist");
                         }
                     } catch (IOException ex) {
-                        printToLog(log,"Utente "+emailAddress+" Email ID = "+emailToRemove.getId()+" qualcosa è andato storto nella rimozione");
+                        printToLog(log,"User "+emailAddress+" Email ID = "+emailToRemove.getId()+" something went wrong when deleting the email");
                     }
                     break;
             }
