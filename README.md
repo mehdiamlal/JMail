@@ -32,7 +32,7 @@ Each email address is associated to a mailbox, implemented as a folder that has 
 - a file containing the inbox
 - a file containing the emails that were sent by the user
 
-## Libraries Used
+### Libraries Used
 - **JavaFX**: to implement the GUI
 - **Gson**: to manage data in JSON
 
