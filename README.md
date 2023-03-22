@@ -5,10 +5,7 @@ A Java distributed email application.
 The application is divided in two modules:
 - A mail server that manages user mailboxes and emails;
 - A mail client.
-
-
-
-
+<br /><br />
 
 The user can use the mail client to:
 - login
@@ -19,6 +16,21 @@ The user can use the mail client to:
 - forward an email
 
 Users get notified whenever they receive a new email.
+
+## Technical Details
+### Server
+The Server receives requests (Java Objects), passes it to the Request Handler which executes the methods that handle the specified operation (e.g. fetch updated user inbox), and sends back the response to the client.
+<br />A fixed thread pool of 10 threads is used, and each request is handled by a thread in the pool; this optimizes the use of resources as it prevents the Server module from creating a brand new thread for each request.
+<br /><br />
+### Client
+The Client, on the other side, constructs a request (creates a new Object) based on the action a user performed on the GUI, opens a network socket to communicate with the Server, and funnels the request through it. 
+<br />Once the Client receives the response, it closes the network socket, and update the GUI accordingly.
+<br /><br />The notification system consists of a scheduled thread that sends a request to the Server every second to check for new emails, displaying an alert if there are.
+<br /><br />
+### Data
+Each email address is associated to a mailbox, implemented as a folder that has two main files (formatted in JSON):
+- a file containing the inbox
+- a file containing the emails that were sent by the user
 
 ## Libraries Used
 - **JavaFX**: to implement the GUI
